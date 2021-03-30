@@ -251,12 +251,9 @@ Remember <a href="https://en.wikipedia.org/wiki/ABAP#Chained_statements">Chained
 </table>
 <h2 id="abap-code-snippets">ABAP Code Snippets</h2>
 <h3 id="hello-world">Hello World</h3>
-<details>
-<summary>Code</summary>
 <pre><code><code><div>REPORT TEST.
 WRITE 'Hello World'.
 </div></code></code></pre>
-</details>
 <h3 id="get-last-day-of-previous-month">Get Last Day of Previous Month</h3>
 <pre><code><code><div>DATA LAST_EOM    TYPE D.  &quot;last end-of-month date
 
@@ -295,6 +292,8 @@ DATA(variable_name) = 'VALUE'.
 SELECT * FROM ekko into @DATA(lt_ekko) WHERE ebeln EQ @lv_ebeln.
 </div></code></code></pre>
 <h3 id="internal-tables">Internal tables</h3>
+<details>
+<summary>Code</summary>
 <pre><code><code><div>* First define structured type
 TYPES: BEGIN OF t_vbrk,
          VBELN TYPE VBRK-VBELN,
@@ -313,6 +312,7 @@ DATA : gs_vbrk TYPE t_vbrk,
 * You can also define table type if needed
 TYPES tt_vbrk TYPE STANDARD TABLE OF t_vbrk.
 </div></code></code></pre>
+</details>
 <h2 id="cool-things">Cool Things</h2>
 <p><a href="https://blogs.sap.com/2013/05/17/using-new-abap-stuff-new-options-for-strings/">ABAP Wikipedia</a><br>
 <a href="https://www.guru99.com/abap-tutorial.html">GURU 99 Tutorial</a><br>

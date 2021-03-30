@@ -121,15 +121,11 @@ Message types:
 
 ## ABAP Code Snippets
 
-### Hello World  
-<details>
-<summary>Code</summary>
-
+### Hello World
 ```
 REPORT TEST.
 WRITE 'Hello World'.
 ```
-</details>
 
 ### Get Last Day of Previous Month
 ```
@@ -175,6 +171,9 @@ SELECT * FROM ekko into @DATA(lt_ekko) WHERE ebeln EQ @lv_ebeln.
 ```
 
 ### Internal tables
+<details>
+<summary>Code</summary>
+
 ```
 * First define structured type
 TYPES: BEGIN OF t_vbrk,
@@ -194,6 +193,7 @@ DATA : gs_vbrk TYPE t_vbrk,
 * You can also define table type if needed
 TYPES tt_vbrk TYPE STANDARD TABLE OF t_vbrk.
 ```
+</details>
 
 ## Cool Things
 
