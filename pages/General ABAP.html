@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ABAP Development Notes</title>
+        <style>
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <!-- title: ABAP Development Notes -->
+<script src="https://jeremyc2.github.io/CDN/markdown-themes.js"></script>
+<h1 id="sap-tables">SAP Tables</h1>
+<ul>
+<li><a href="#sap-tables">SAP Tables</a>
+<ul>
+<li><a href="#general-notes">General Notes</a></li>
+<li><a href="#t-codes">T-Codes</a>
+<ul>
+<li><a href="#standard-t-codes">Standard T-Codes</a></li>
+<li><a href="#special-t-codes">Special T-Codes</a></li>
+</ul>
+</li>
+<li><a href="#my-local-development-objects">My Local Development Objects</a></li>
+<li><a href="#abap-crud">ABAP CRUD</a></li>
+<li><a href="#abap-code-snippets">ABAP Code Snippets</a>
+<ul>
+<li><a href="#hello-world">Hello World</a></li>
+<li><a href="#get-last-day-of-previous-month">Get Last Day of Previous Month</a></li>
+<li><a href="#explicitly-typed-declaration">Explicitly typed declaration</a></li>
+<li><a href="#implicit-inline-declaration-since-abap-740">Implicit inline declaration (Since ABAP 7.40)</a></li>
+<li><a href="#internal-tables">Internal tables</a></li>
+</ul>
+</li>
+<li><a href="#cool-things">Cool Things</a></li>
+<li><a href="#todo-list">TODO List</a></li>
+<li><a href="#vs-code-markdown-help">VS Code Markdown Help</a>
+<ul>
+<li><a href="#useful-extensions">Useful Extensions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="general-notes">General Notes</h2>
+<p>ABAP is interpreted.<br>
+ABAP is <a href="https://en.wikipedia.org/wiki/ABAP#Spaces">Whitespace sensitive</a>.<br>
+ABAP is not case-sensitive.<br>
+Statements end with a period.<br>
+Remember <a href="https://en.wikipedia.org/wiki/ABAP#Chained_statements">Chained Statements</a></p>
+<p>Comments:</p>
+<ul>
+<li>* Makes the entire line a comment</li>
+<li>&quot; Makes the rest of the line a comment</li>
+</ul>
+<p>Executable program types:</p>
+<ol>
+<li>Reports: Accepts parameters from the user and produces an interactive list</li>
+<li>Module pools: More complex user interaction using a collection of screens.</li>
+</ol>
+<p>Non-executable program types:</p>
+<ol>
+<li>INCLUDE modules: Used to subdivide large programs</li>
+<li>Subroutine pools: Contains ABAP subroutines (blocks of code enclosed by FORM/ENDFORM statements and invoked with PERFORM)</li>
+<li>Function groups: Contains function modules (enclosed by FUNCTION/ENDFUNCTION and invoked with CALL FUNCTION)</li>
+<li>Object classes &amp; Interfaces: Object Oriented Programming</li>
+<li>Type pools: Collections of data types and constants</li>
+</ol>
+<p>Data Dictionary:</p>
+<ol>
+<li>Tables: Relational.
+<ol>
+<li>Transparent: 1-to-1 relationship between the definition of a table in the ABAP Dictionary and the definition of that same table in the database (same name, same columns).</li>
+<li>Pooled: Separate tables in Data Dictionary, but grouped together at the database level</li>
+<li>Clustered: Grouped based on their primary keys</li>
+</ol>
+</li>
+<li>Indexes: Speeds up database access for highly-frequented objects</li>
+<li>Views: Virual table</li>
+<li>Structures: Similar to C++ struct. Can also represent a single row in a table</li>
+<li>Data elements: Data type</li>
+<li>Domains: Characteristics of data elements. Can also contain possible values</li>
+<li>Search helps: List of possible values for a field</li>
+<li>Lock objects: Controls access, prevents race conditions</li>
+</ol>
+<p>Built-in Data Types:</p>
+<ul>
+<li>I: Integer</li>
+<li>P: Packed decimal</li>
+<li>F: Floating point</li>
+<li>N: Character numeric</li>
+<li>C: Character</li>
+<li>D: Date</li>
+<li>T: Time</li>
+<li>X: Hexadecimal</li>
+<li>STRING: Variable-length string</li>
+<li>XSTRING: Variable-length raw byte array</li>
+</ul>
+<p>Message types:</p>
+<ul>
+<li>A: Abend</li>
+<li>E: Error</li>
+<li>I: Information</li>
+<li>S: Success, Status</li>
+<li>W: Warning</li>
+<li>X: Exit (Terminates and logs info to T-Code ST22)</li>
+</ul>
+<h2 id="t-codes">T-Codes</h2>
+<p><strong>Table TSTC:</strong> All T-Codes can be viewed</p>
+<p><a href="https://www.system-overload.org/sap/transaction-codes.html">T-Codes By Category</a></p>
+<h3 id="standard-t-codes">Standard T-Codes</h3>
+<p><em>To write an executable report use SE38</em></p>
+<table>
+<thead>
+<tr>
+<th>T-Code</th>
+<th>Transaction</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SE38</strong></td>
+<td>ABAP Editor</td>
+<td>Write/edit reports, module pools, includes and subroutine pools</td>
+</tr>
+<tr>
+<td><strong>SE11, SE12</strong></td>
+<td>View/Change Table</td>
+<td>Process database table definitions and retrieve global types</td>
+</tr>
+<tr>
+<td><strong>SE16</strong></td>
+<td>Table Browser</td>
+<td>View tables in Data Dictionary</td>
+</tr>
+<tr>
+<td><strong>SE16N</strong></td>
+<td>Change Table Data</td>
+<td>Interface to change table data in Data Dictionary</td>
+</tr>
+<tr>
+<td><strong>SD11</strong></td>
+<td>SAP Data Model</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>SE41</strong></td>
+<td>Menu Painter</td>
+<td>Design user interface</td>
+</tr>
+<tr>
+<td><strong>SE51</strong></td>
+<td>Screen Painter</td>
+<td>Design Screen and flow logic</td>
+</tr>
+<tr>
+<td><strong>SE37</strong></td>
+<td>Function Builder</td>
+<td>Write/edit function modules</td>
+</tr>
+<tr>
+<td><strong>SE24</strong></td>
+<td>Class Builder</td>
+<td>Write/edit object classes and interfaces</td>
+</tr>
+<tr>
+<td><strong>SE80</strong></td>
+<td>Object Navigator</td>
+<td>Single Interface for various development tools</td>
+</tr>
+</tbody>
+</table>
+<h3 id="special-t-codes">Special T-Codes</h3>
+<h2 id="my-local-development-objects">My Local Development Objects</h2>
+<table>
+<thead>
+<tr>
+<th>Object</th>
+<th>Client</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ZTEST_JC</td>
+<td>DR4 410</td>
+<td>Report</td>
+<td>CRUD Practice</td>
+</tr>
+<tr>
+<td>ztest_jc01</td>
+<td>DR4 410</td>
+<td>Table</td>
+<td>People Table</td>
+</tr>
+</tbody>
+</table>
+<h2 id="abap-crud">ABAP CRUD</h2>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th></th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create</td>
+<td>POST</td>
+<td>Insert <em>table</em> from <em>workarea</em></td>
+</tr>
+<tr>
+<td>Read</td>
+<td>GET</td>
+<td>Select Single * from <em>table</em> into <em>workarea</em></td>
+</tr>
+<tr>
+<td>Update</td>
+<td>PUT/PATCH</td>
+<td>Update <em>table</em> set <em>workarea</em></td>
+</tr>
+<tr>
+<td>Delete</td>
+<td>DELETE</td>
+<td>Delete from <em>table</em></td>
+</tr>
+<tr>
+<td>Query</td>
+<td>GET</td>
+<td>Select *  from <em>table</em> into <em>table</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="abap-code-snippets">ABAP Code Snippets</h2>
+<h3 id="hello-world">Hello World</h3>
+<details>
+<summary>Code</summary>
+<pre><code><code><div>REPORT TEST.
+WRITE 'Hello World'.
+</div></code></code></pre>
+</details>
+<h3 id="get-last-day-of-previous-month">Get Last Day of Previous Month</h3>
+<pre><code><code><div>DATA LAST_EOM    TYPE D.  &quot;last end-of-month date
+
+* Start from today's date
+  LAST_EOM = SY-DATUM.
+* Set characters 6 and 7 (0-relative) of the YYYYMMDD string to &quot;01&quot;,
+* giving the first day of the current month
+  LAST_EOM+6(2) = '01'.
+* Subtract one day
+  LAST_EOM = LAST_EOM - 1.
+
+  WRITE: 'Last day of previous month was', LAST_EOM.
+</div></code></code></pre>
+<h3 id="explicitly-typed-declaration">Explicitly typed declaration</h3>
+<pre><code><code><div>* Primitive types:
+DATA: COUNTER      TYPE I,
+      VALIDITY     TYPE I VALUE 60,
+      TAXRATE(3)   TYPE P DECIMALS 1,
+      LASTNAME(20) TYPE C,
+      DESCRIPTION  TYPE STRING.
+
+* Dictionary types:
+DATA: ORIGIN       TYPE COUNTRY.
+
+* Internal table:
+DATA: T_FLIGHTS    TYPE TABLE OF FLIGHTINFO,
+      T_LOOKUP     TYPE HASHED TABLE OF FLT_LOOKUP.
+
+* Objects:
+DATA: BOOKING      TYPE REF TO CL_FLT_BOOKING.
+</div></code></code></pre>
+<h3 id="implicit-inline-declaration-since-abap-740">Implicit inline declaration (Since ABAP 7.40)</h3>
+<pre><code><code><div>* It must be possible to infer the type statically
+DATA(variable_name) = 'VALUE'.
+
+SELECT * FROM ekko into @DATA(lt_ekko) WHERE ebeln EQ @lv_ebeln.
+</div></code></code></pre>
+<h3 id="internal-tables">Internal tables</h3>
+<pre><code><code><div>* First define structured type
+TYPES: BEGIN OF t_vbrk,
+         VBELN TYPE VBRK-VBELN,
+         ZUONR TYPE VBRK-ZUONR,
+       END OF t_vbrk.
+
+* Now define internal table of our defined type t_vbrk
+DATA : gt_vbrk TYPE STANDARD TABLE OF t_vbrk,
+       gt_vbrk_2 TYPE STANDARD TABLE OF t_vbrk.   &quot;easy to define more tables
+
+* If needed, define structure (line of internal table)
+* Definition with type or with reference to internal table:
+DATA : gs_vbrk TYPE t_vbrk,
+       gs_vbrk2 LIKE LINE OF gt_vbrk2.
+
+* You can also define table type if needed
+TYPES tt_vbrk TYPE STANDARD TABLE OF t_vbrk.
+</div></code></code></pre>
+<h2 id="cool-things">Cool Things</h2>
+<p><a href="https://blogs.sap.com/2013/05/17/using-new-abap-stuff-new-options-for-strings/">ABAP Wikipedia</a><br>
+<a href="https://www.guru99.com/abap-tutorial.html">GURU 99 Tutorial</a><br>
+<a href="https://en.wikipedia.org/wiki/ABAP">New String Options</a></p>
+<h2 id="todo-list">TODO List</h2>
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> Create a table in the DDIC</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> Build a CRUD Report</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> Create Search Helps</li>
+</ul>
+<h2 id="vs-code-markdown-help">VS Code Markdown Help</h2>
+<p>Command Palette (Ctrl+Shift+P) -&gt; Print current document in HTML<br>
+Alt+C - Toggle Checklist<br>
+Ctrl+Shift+V - Toggle Markdown</p>
+<h3 id="useful-extensions">Useful Extensions</h3>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one">Markdown All In One</a><br>
+<a href="https://marketplace.visualstudio.com/items?itemName=pucelle.run-on-save">Run On Save</a></p>
+
+    </body>
+    </html>

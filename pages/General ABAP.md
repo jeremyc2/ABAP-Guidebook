@@ -122,10 +122,14 @@ Message types:
 ## ABAP Code Snippets
 
 ### Hello World  
+<details>
+<summary>Code</summary>
+
 ```
 REPORT TEST.
 WRITE 'Hello World'.
 ```
+</details>
 
 ### Get Last Day of Previous Month
 ```
