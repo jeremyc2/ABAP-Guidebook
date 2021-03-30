@@ -21,7 +21,8 @@
   - [Cool Things](#cool-things)
   - [TODO List](#todo-list)
   - [VS Code Markdown Help](#vs-code-markdown-help)
-    - [Useful Extensions](#useful-extensions)
+    - [Extensions](#extensions)
+    - [Tips and Shortcuts](#tips-and-shortcuts)
 </details>
 
 ## General Notes
@@ -228,14 +229,31 @@ TYPES tt_vbrk TYPE STANDARD TABLE OF t_vbrk.
 
 ## VS Code Markdown Help
 
+### Extensions
+
+[Markdown All In One][MD-All-In-One]  
+[Run On Save][Run-On-Save]  
+
+### Tips and Shortcuts
+
 Command Palette (Ctrl+Shift+P) -> Print current document in HTML  
 Alt+C - Toggle Checklist  
 Ctrl+Shift+V - Toggle Markdown  
 
-### Useful Extensions
-
-[Markdown All In One][MD-All-In-One]  
-[Run On Save][Run-On-Save]  
+Add the following to  your markdown snippets and make sure quick suggestions are enabled in settings.json
+```json
+"Collapsable details block": {
+  "prefix": "details",
+  "body": [
+    "<details open>",
+    "<summary>${1:Expand}</summary>",
+    "",
+    "$2",
+    "</details>",
+    "$0"
+  ]
+}
+```
 
 [1]: https://www.system-overload.org/sap/transaction-codes.html
 [2]: https://blogs.sap.com/2013/05/17/using-new-abap-stuff-new-options-for-strings/

@@ -5,7 +5,8 @@
         <title>ABAP Development Notes</title>
         <style>
 </style>
-        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
 <style>
@@ -19,7 +20,7 @@
 .task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
 </style>
         
-        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
         
     </head>
     <body class="vscode-body vscode-light">
@@ -52,7 +53,8 @@
 <li><a href="#todo-list">TODO List</a></li>
 <li><a href="#vs-code-markdown-help">VS Code Markdown Help</a>
 <ul>
-<li><a href="#useful-extensions">Useful Extensions</a></li>
+<li><a href="#extensions">Extensions</a></li>
+<li><a href="#tips-and-shortcuts">Tips and Shortcuts</a></li>
 </ul>
 </li>
 </ul>
@@ -338,12 +340,26 @@ TYPES tt_vbrk TYPE STANDARD TABLE OF t_vbrk.
 <li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> Create Search Helps</li>
 </ul>
 <h2 id="vs-code-markdown-help">VS Code Markdown Help</h2>
+<h3 id="extensions">Extensions</h3>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one">Markdown All In One</a><br>
+<a href="https://marketplace.visualstudio.com/items?itemName=pucelle.run-on-save">Run On Save</a></p>
+<h3 id="tips-and-shortcuts">Tips and Shortcuts</h3>
 <p>Command Palette (Ctrl+Shift+P) -&gt; Print current document in HTML<br>
 Alt+C - Toggle Checklist<br>
 Ctrl+Shift+V - Toggle Markdown</p>
-<h3 id="useful-extensions">Useful Extensions</h3>
-<p><a href="https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one">Markdown All In One</a><br>
-<a href="https://marketplace.visualstudio.com/items?itemName=pucelle.run-on-save">Run On Save</a></p>
+<p>Add the following to  your markdown snippets and make sure quick suggestions are enabled in settings.json</p>
+<pre><code class="language-json"><div><span class="hljs-string">&quot;Collapsable details block&quot;</span>: {
+  <span class="hljs-attr">&quot;prefix&quot;</span>: <span class="hljs-string">&quot;details&quot;</span>,
+  <span class="hljs-attr">&quot;body&quot;</span>: [
+    <span class="hljs-string">&quot;&lt;details open&gt;&quot;</span>,
+    <span class="hljs-string">&quot;&lt;summary&gt;${1:Expand}&lt;/summary&gt;&quot;</span>,
+    <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-string">&quot;$2&quot;</span>,
+    <span class="hljs-string">&quot;&lt;/details&gt;&quot;</span>,
+    <span class="hljs-string">&quot;$0&quot;</span>
+  ]
+}
+</div></code></pre>
 
     </body>
     </html>
