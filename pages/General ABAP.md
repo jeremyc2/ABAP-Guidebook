@@ -3,6 +3,8 @@
 
 # SAP Tables
 
+<details open><summary>Table of Contents</summary>
+
 - [SAP Tables](#sap-tables)
   - [General Notes](#general-notes)
   - [T-Codes](#t-codes)
@@ -20,6 +22,7 @@
   - [TODO List](#todo-list)
   - [VS Code Markdown Help](#vs-code-markdown-help)
     - [Useful Extensions](#useful-extensions)
+</details>
 
 ## General Notes
 
@@ -122,12 +125,19 @@ Message types:
 ## ABAP Code Snippets
 
 ### Hello World
+<details open>
+<summary>Code</summary>
+
 ```
 REPORT TEST.
 WRITE 'Hello World'.
 ```
+</details>
 
 ### Get Last Day of Previous Month
+<details open>
+<summary>Code</summary>
+
 ```
 DATA LAST_EOM    TYPE D.  "last end-of-month date
 
@@ -141,8 +151,12 @@ DATA LAST_EOM    TYPE D.  "last end-of-month date
 
   WRITE: 'Last day of previous month was', LAST_EOM.
 ```
+</details>
 
 ### Explicitly typed declaration
+<details open>
+<summary>Code</summary>
+
 ```
 * Primitive types:
 DATA: COUNTER      TYPE I,
@@ -161,17 +175,22 @@ DATA: T_FLIGHTS    TYPE TABLE OF FLIGHTINFO,
 * Objects:
 DATA: BOOKING      TYPE REF TO CL_FLT_BOOKING.
 ```
+</details>
 
 ### Implicit inline declaration (Since ABAP 7.40)
+<details open>
+<summary>Code</summary>
+
 ```
 * It must be possible to infer the type statically
 DATA(variable_name) = 'VALUE'.
 
 SELECT * FROM ekko into @DATA(lt_ekko) WHERE ebeln EQ @lv_ebeln.
 ```
+</details>
 
 ### Internal tables
-<details>
+<details open>
 <summary>Code</summary>
 
 ```
