@@ -17,7 +17,8 @@
     - [Get Last Day of Previous Month](#get-last-day-of-previous-month)
     - [Explicitly typed declaration](#explicitly-typed-declaration)
     - [Implicit inline declaration (Since ABAP 7.40)](#implicit-inline-declaration-since-abap-740)
-    - [Internal tables](#internal-tables)
+    - [Define Internal tables](#define-internal-tables)
+    - [Create Internal Table Using Values Construct](#create-internal-table-using-values-construct)
   - [Cool Things](#cool-things)
   - [TODO List](#todo-list)
   - [VS Code Markdown Help](#vs-code-markdown-help)
@@ -192,7 +193,7 @@ SELECT * FROM ekko into @DATA(lt_ekko) WHERE ebeln EQ @lv_ebeln.
 ```
 </details>
 
-### Internal tables
+### Define Internal tables
 <details open>
 <summary>Code</summary>
 
@@ -217,11 +218,54 @@ TYPES tt_vbrk TYPE STANDARD TABLE OF t_vbrk.
 ```
 </details>
 
+### Create Internal Table Using Values Construct
+<details open>
+<summary>Code</summary>
+
+```
+TYPES:
+  itab1 TYPE SORTED TABLE OF string WITH UNIQUE KEY table_line,
+  BEGIN OF struct,
+    col1 TYPE c LENGTH 2,
+    col2 TYPE c LENGTH 2,
+    col3 TYPE c LENGTH 2,
+  END OF struct,
+  itab2 TYPE SORTED TABLE OF struct WITH UNIQUE KEY col1 col2 col3.
+
+DATA(base1) = VALUE itab1(
+                ( `x1y1z1` )
+                ( `x2y2z2` )
+                ( `x3y3z3` ) ).
+DATA(base2) = VALUE itab2(
+                ( col1 = 'x1' col2 = 'y1' col3 = 'z1' )
+                ( col1 = 'x2' col2 = 'y2' col3 = 'z2' )
+                ( col1 = 'x3' col2 = 'y3' col3 = 'z3' ) ).
+
+DATA(tab1) = VALUE #( BASE base1
+               ( `A1B1B1` )
+               ( `A2B2B2` ) ).
+
+DATA(tab2)  = VALUE #(
+                BASE base2
+                ( col1 = 'A1' col2 = 'B1' col3 = 'C1' )
+                ( col1 = 'A2' col2 = 'B2' col3 = 'C2' ) ).
+
+DATA(tab3) = VALUE itab2( BASE base1
+               ( col1 = 'A1' col2 = 'B1' col3 = 'C1' )
+               ( col1 = 'A2' col2 = 'B2' col3 = 'C2' ) ).
+
+cl_demo_output=>write(   tab1  ).
+cl_demo_output=>write(   tab2 ).
+cl_demo_output=>display( tab3 ).
+```
+</details>
+
 ## Cool Things
 
 [ABAP Wikipedia][2]  
 [GURU 99 Tutorial][6]  
 [New String Options][3]  
+[Value (Quick insert into internal tables)][7]
 
 ## TODO List
 
@@ -263,5 +307,6 @@ Add the following to  your markdown snippets and make sure quick suggestions are
 [4]: https://en.wikipedia.org/wiki/ABAP#Chained_statements
 [5]: https://en.wikipedia.org/wiki/ABAP#Spaces
 [6]: https://www.guru99.com/abap-tutorial.html
+[7]: https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenvalue_constructor_params_itab.htm
 [MD-All-In-One]: https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one
 [Run-On-Save]: https://marketplace.visualstudio.com/items?itemName=pucelle.run-on-save

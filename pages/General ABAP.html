@@ -46,7 +46,8 @@
 <li><a href="#get-last-day-of-previous-month">Get Last Day of Previous Month</a></li>
 <li><a href="#explicitly-typed-declaration">Explicitly typed declaration</a></li>
 <li><a href="#implicit-inline-declaration-since-abap-740">Implicit inline declaration (Since ABAP 7.40)</a></li>
-<li><a href="#internal-tables">Internal tables</a></li>
+<li><a href="#define-internal-tables">Define Internal tables</a></li>
+<li><a href="#create-internal-table-using-values-construct">Create Internal Table Using Values Construct</a></li>
 </ul>
 </li>
 <li><a href="#cool-things">Cool Things</a></li>
@@ -308,7 +309,7 @@ DATA(variable_name) = 'VALUE'.
 SELECT * FROM ekko into @DATA(lt_ekko) WHERE ebeln EQ @lv_ebeln.
 </div></code></code></pre>
 </details>
-<h3 id="internal-tables">Internal tables</h3>
+<h3 id="define-internal-tables">Define Internal tables</h3>
 <details open>
 <summary>Code</summary>
 <pre><code><code><div>* First define structured type
@@ -330,10 +331,50 @@ DATA : gs_vbrk TYPE t_vbrk,
 TYPES tt_vbrk TYPE STANDARD TABLE OF t_vbrk.
 </div></code></code></pre>
 </details>
+<h3 id="create-internal-table-using-values-construct">Create Internal Table Using Values Construct</h3>
+<details open>
+<summary>Code</summary>
+<pre><code><code><div>TYPES:
+  itab1 TYPE SORTED TABLE OF string WITH UNIQUE KEY table_line,
+  BEGIN OF struct,
+    col1 TYPE c LENGTH 2,
+    col2 TYPE c LENGTH 2,
+    col3 TYPE c LENGTH 2,
+  END OF struct,
+  itab2 TYPE SORTED TABLE OF struct WITH UNIQUE KEY col1 col2 col3.
+
+DATA(base1) = VALUE itab1(
+                ( `x1y1z1` )
+                ( `x2y2z2` )
+                ( `x3y3z3` ) ).
+DATA(base2) = VALUE itab2(
+                ( col1 = 'x1' col2 = 'y1' col3 = 'z1' )
+                ( col1 = 'x2' col2 = 'y2' col3 = 'z2' )
+                ( col1 = 'x3' col2 = 'y3' col3 = 'z3' ) ).
+
+DATA(tab1) = VALUE #( BASE base1
+               ( `A1B1B1` )
+               ( `A2B2B2` ) ).
+
+DATA(tab2)  = VALUE #(
+                BASE base2
+                ( col1 = 'A1' col2 = 'B1' col3 = 'C1' )
+                ( col1 = 'A2' col2 = 'B2' col3 = 'C2' ) ).
+
+DATA(tab3) = VALUE itab2( BASE base1
+               ( col1 = 'A1' col2 = 'B1' col3 = 'C1' )
+               ( col1 = 'A2' col2 = 'B2' col3 = 'C2' ) ).
+
+cl_demo_output=&gt;write(   tab1  ).
+cl_demo_output=&gt;write(   tab2 ).
+cl_demo_output=&gt;display( tab3 ).
+</div></code></code></pre>
+</details>
 <h2 id="cool-things">Cool Things</h2>
 <p><a href="https://blogs.sap.com/2013/05/17/using-new-abap-stuff-new-options-for-strings/">ABAP Wikipedia</a><br>
 <a href="https://www.guru99.com/abap-tutorial.html">GURU 99 Tutorial</a><br>
-<a href="https://en.wikipedia.org/wiki/ABAP">New String Options</a></p>
+<a href="https://en.wikipedia.org/wiki/ABAP">New String Options</a><br>
+<a href="https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenvalue_constructor_params_itab.htm">Value (Quick insert into internal tables)</a></p>
 <h2 id="todo-list">TODO List</h2>
 <ul class="contains-task-list">
 <li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> Create a table in the DDIC</li>
