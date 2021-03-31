@@ -28,11 +28,25 @@
 
 ## General Notes
 
+T-Code ABAPDOCU - ABAP Documentation
+
 ABAP is interpreted.  
 ABAP is [Whitespace sensitive][5].  
 ABAP is not case-sensitive.  
 Statements end with a period.  
 Remember [Chained Statements][4]  
+
+Sample Programs: 
+  * Package **SABAPDEMOS**
+  * **BC\*ALV\*** or **BC\*ALV\*DEMO** (i.e. **BCALV_GRID_05**)
+
+RICEF:
+  * Reports - Show Data
+  * Interfaces - Connection from one system to another (i.e. Coupa to SAP)
+  * Conversions - Load data from non-SAP to SAP (i.e. from Excel)
+  * Enhancements - Enhance the standard logic without disturbing the standard User Exits
+  * Forms - SAP Script, Smartforms, Adobe froms -> all used to generate output (i.e. PDF)
+  * Workflow - 
 
 Comments:
   * \* Makes the entire line a comment
@@ -40,7 +54,7 @@ Comments:
 
 Executable program types:
   1. Reports: Accepts parameters from the user and produces an interactive list
-  2. Module pools: More complex user interaction using a collection of screens. 
+  2. Module pools: More complex user interaction using a collection of screens.
 
 Non-executable program types:
   1. INCLUDE modules: Used to subdivide large programs
