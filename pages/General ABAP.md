@@ -116,7 +116,8 @@ Message types:
 
 ## ABAP CRUD
 
-[Open SQL](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenopensql.htm)
+[Open SQL][8]  
+[Internal Tables][9]  
 
 | Operation |           | Code                                                                         |
 | --------- | --------- | ---------------------------------------------------------------------------- |
@@ -308,5 +309,7 @@ Add the following to  your markdown snippets and make sure quick suggestions are
 [5]: https://en.wikipedia.org/wiki/ABAP#Spaces
 [6]: https://www.guru99.com/abap-tutorial.html
 [7]: https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenvalue_constructor_params_itab.htm
+[8]: https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenopensql.htm
+[9]: https://help.sap.com/doc/abapdocu_750_index_htm/7.50/en-US/abenitab.htm
 [MD-All-In-One]: https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one
 [Run-On-Save]: https://marketplace.visualstudio.com/items?itemName=pucelle.run-on-save
