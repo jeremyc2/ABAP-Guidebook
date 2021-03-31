@@ -115,13 +115,15 @@ Message types:
 
 ## ABAP CRUD
 
-| Operation |           | Code                                          |
-| --------- | --------- | --------------------------------------------- |
-| Create    | POST      | Insert *table* from *workarea*                |
-| Read      | GET       | Select Single \* from *table* into *workarea* |
-| Update    | PUT/PATCH | Update *table* set *workarea*                 |
-| Delete    | DELETE    | Delete from *table*                           |
-| Query     | GET       | Select \*  from *table* into *table*          |
+[Open SQL](https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenopensql.htm)
+
+| Operation |           | Code                                                                         |
+| --------- | --------- | ---------------------------------------------------------------------------- |
+| Create    | POST      | Insert *target* from *workarea* </br> Insert into *target* values *workarea* |
+| Read      | GET       | Select Single \* from *table* into *workarea*                                |
+| Update    | PUT/PATCH | Update *table* set *workarea*                                                |
+| Delete    | DELETE    | Delete from *table*                                                          |
+| Query     | GET       | Select \*  from *table* into *table*                                         |
 
 ## ABAP Code Snippets
 
