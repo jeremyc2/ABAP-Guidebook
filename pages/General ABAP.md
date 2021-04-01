@@ -40,6 +40,12 @@ Sample Programs:
   * Package **SABAPDEMOS** (from **SE80** or **SE16** with table **TADIR** ([also here](Demo-Programs-and-Templates.md)))
   * **BC\*ALV\*** or **BC\*ALV\*DEMO** (i.e. **BCALV_GRID_05**)
 
+Program Search:
+  1. **SE38**
+  2. **F4** in the program field
+  3. Click **System Information**
+  4. Click **All Selections**
+
 UI Example:
   * Transaction **BIBS**
   * Program **SAPLEXAMPLE_ENTRY_SCREEN**
