@@ -28,7 +28,7 @@
 
 ## General Notes
 
-T-Code ABAPDOCU - ABAP Documentation
+T-Code ABAPDOCU - ABAP Documentation ([Available Online][ABAP-Docu])
 
 ABAP is interpreted.  
 ABAP is [Whitespace sensitive][5].  
@@ -118,6 +118,7 @@ Message types:
 | **SE37**       | Function Builder  | Write/edit function modules                                     |
 | **SE24**       | Class Builder     | Write/edit object classes and interfaces                        |
 | **SE80**       | Object Navigator  | Single Interface for various development tools                  |
+| **/NEX**       | Exit              | Exit from the current client                                    |
 
 ### Special T-Codes
 
@@ -325,5 +326,6 @@ Add the following to  your markdown snippets and make sure quick suggestions are
 [7]: https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenvalue_constructor_params_itab.htm
 [8]: https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenopensql.htm
 [9]: https://help.sap.com/doc/abapdocu_750_index_htm/7.50/en-US/abenitab.htm
+[ABAP-Docu]: http://sapdr4a21.wal-mart.com:8050/sap/public/bc/abap/docu?sap-language=EN&format=STANDARD&object=ABENABAP&tree=X
 [MD-All-In-One]: https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one
 [Run-On-Save]: https://marketplace.visualstudio.com/items?itemName=pucelle.run-on-save
