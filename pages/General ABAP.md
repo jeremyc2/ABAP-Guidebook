@@ -298,7 +298,7 @@ cl_demo_output=>display( tab3 ).
 ## TODO List
 
 * [x] Create a table in the DDIC
-* [ ] Build a CRUD Report
+* [x] Build a CRUD Report
 * [ ] Create Search Helps
 
 ## VS Code Markdown Help
