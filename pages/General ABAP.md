@@ -37,8 +37,12 @@ Statements end with a period.
 Remember [Chained Statements][4]  
 
 Sample Programs: 
-  * Package **SABAPDEMOS**
+  * Package **SABAPDEMOS** (from **SE80** or **SE16** with table **TADIR** ([also here](Demo-Programs-and-Templates.md)))
   * **BC\*ALV\*** or **BC\*ALV\*DEMO** (i.e. **BCALV_GRID_05**)
+
+UI Example:
+  * Transaction **BIBS**
+  * Program **SAPLEXAMPLE_ENTRY_SCREEN**
 
 RICEF:
   * Reports - Show Data
@@ -118,6 +122,7 @@ Message types:
 | **SE37**       | Function Builder  | Write/edit function modules                                     |
 | **SE24**       | Class Builder     | Write/edit object classes and interfaces                        |
 | **SE80**       | Object Navigator  | Single Interface for various development tools                  |
+| **SA38**       | Program Execution | Execute an ABAP program                                         |
 | **/NEX**       | Exit              | Exit from the current client                                    |
 
 ### Special T-Codes
