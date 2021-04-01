@@ -46,7 +46,7 @@ RICEF:
   * Conversions - Load data from non-SAP to SAP (i.e. from Excel)
   * Enhancements - Enhance the standard logic without disturbing the standard User Exits
   * Forms - SAP Script, Smartforms, Adobe froms -> all used to generate output (i.e. PDF)
-  * Workflow - 
+  * Workflow - Tool for automating the business process
 
 Comments:
   * \* Makes the entire line a comment
