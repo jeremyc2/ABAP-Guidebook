@@ -39,7 +39,7 @@ Remember [Chained Statements][4]
 
 Sample Programs: 
   * Package **SABAPDEMOS** (from **SE38**/**SE80** or **SE16** with table **TADIR** ([also here](Demo-Programs-and-Templates.md)))
-  * **BC\*ALV\*** or **BC\*ALV\*DEMO** (i.e. **BCALV_GRID_05**)
+  * **BC\*ALV\*** or **BC\*ALV\*DEMO** (i.e. **BCALV_GRID_05** (see [**ALV** programming][10]))
 
 Program Search:
   1. **SE38**
@@ -338,6 +338,7 @@ Add the following to  your markdown snippets and make sure quick suggestions are
 [7]: https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenvalue_constructor_params_itab.htm
 [8]: https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenopensql.htm
 [9]: https://help.sap.com/doc/abapdocu_750_index_htm/7.50/en-US/abenitab.htm
+[10]: https://www.guru99.com/alv-list-view-programming.html
 [ABAP-Docu]: http://sapdr4a21.wal-mart.com:8050/sap/public/bc/abap/docu?sap-language=EN&format=STANDARD&object=ABENABAP&tree=X
 [MD-All-In-One]: https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one
 [Run-On-Save]: https://marketplace.visualstudio.com/items?itemName=pucelle.run-on-save
