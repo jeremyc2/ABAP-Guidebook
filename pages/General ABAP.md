@@ -134,6 +134,12 @@ Message types:
 
 ### Special T-Codes
 
+| T-Code    | Transaction                              | Description                    |
+| --------- | ---------------------------------------- | ------------------------------ |
+| **ME23N** | Display Purchase Order                   |                                |
+| **ME2N**  | Purchasing Documents Per Document Number | Search for purchasing document |
+| **MIRO**  | Enter Incoming Invoice                   | Post an Invoice                |
+
 ## My Local Development Objects
 
 | Object     | Client  | Type   | Description   |
