@@ -135,9 +135,9 @@ Built-in Data Types:
   * STRING: Variable-length string
   * XSTRING: Variable-length raw byte array
 
-> **Hex values and strings (if they are being compared with another string) must be in all-caps**  
-> **Escape single quotes in strings with a single quote**  
-> **You may have to include single quotes around some other data types**  
+> Hex values and strings (if they are being compared with another string) must be in all-caps  
+> Escape single quotes in strings with a single quote  
+> You may have to include single quotes around some other data types  
 
 | Data Type | Internal Description | Default Internal Length | Max Internal Length | Valid Values | Default Initial Value |
 | --------- | -------------------- | ----------------------- | ------------------- | ------------ | --------------------- |
