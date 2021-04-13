@@ -112,6 +112,19 @@ data v1 like v2 [value 'xxx']
 parameters p1 like v1 [default 'xxx'] [obligatory] [lower case] [as checkbox] [radiobutton group g]  
 ```
 
+<details closed>
+<summary>Tips</summary>  
+
+Always use the like addition to define a parameter. When you use it, the parameter acquires the following attributes from the Data Dictionary:  
+* F1 help is acquired from the Documentation button in the data element.  
+* F4 help is acquired if your parameter is like one that has a check table.  
+* A field label obtained from the Data Dictionary is guaranteed to be consistent with the field label presented by other programs for the same field (provided they also obtain them from the DDIC). This eliminates the confusion of having two fields that are labeled differently refer to the same data.  
+* Modifications to the data type or length in the DDIC are automatically reflected by your program.  
+  
+In view of all of these advantages, you should always use the like addition to define a parameter. This applies even to check boxes and radio buttons. If necessary, you should create a structure in the DDIC so that you can use like and at a minimum, provide F1 help. Note that F1 help is available even for radio buttons and check boxes.
+</details>
+</br>
+
 Built-in Data Types:
   * I: Integer
   * P: Packed decimal

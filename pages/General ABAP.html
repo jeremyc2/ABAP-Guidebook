@@ -150,6 +150,18 @@ Remember <a href="https://en.wikipedia.org/wiki/ABAP#Chained_statements">Chained
 </div></code></code></pre>
 <pre><code><code><div>parameters p1 like v1 [default 'xxx'] [obligatory] [lower case] [as checkbox] [radiobutton group g]  
 </div></code></code></pre>
+<details closed>
+<summary>Tips</summary>  
+<p>Always use the like addition to define a parameter. When you use it, the parameter acquires the following attributes from the Data Dictionary:</p>
+<ul>
+<li>F1 help is acquired from the Documentation button in the data element.</li>
+<li>F4 help is acquired if your parameter is like one that has a check table.</li>
+<li>A field label obtained from the Data Dictionary is guaranteed to be consistent with the field label presented by other programs for the same field (provided they also obtain them from the DDIC). This eliminates the confusion of having two fields that are labeled differently refer to the same data.</li>
+<li>Modifications to the data type or length in the DDIC are automatically reflected by your program.</li>
+</ul>
+<p>In view of all of these advantages, you should always use the like addition to define a parameter. This applies even to check boxes and radio buttons. If necessary, you should create a structure in the DDIC so that you can use like and at a minimum, provide F1 help. Note that F1 help is available even for radio buttons and check boxes.</p>
+</details>
+</br>
 <p>Built-in Data Types:</p>
 <ul>
 <li>I: Integer</li>
