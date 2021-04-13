@@ -94,7 +94,11 @@ Data Dictionary:
 
 ### The Data Statement
 > *data v1[(1)] [type t] [decimals d] [value 'xxx']*  
-*data v1 like v2 [value 'xxx']*
+*data v1 like v2 [value 'xxx']*  
+
+> parameters p1[(l)] [type t] [decimals d] ...
+or
+parameters p1 like v1 ... [default 'xxx'] [obligatory] [lower case] [as checkbox] [radiobutton group g].
 
 Built-in Data Types:
   * I: Integer
