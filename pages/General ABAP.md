@@ -88,10 +88,6 @@ Data Dictionary:
   7. Search helps: List of possible values for a field
   8. Lock objects: Controls access, prevents race conditions
 
-> **Hex values and strings (if they are being compared with another string) must be in all-caps**  
-> **Escape single quotes in strings with a single quote**  
-> **You may have to include single quotes around some other data types**  
-
 ### Data and Parameters Statements
 
 ```
@@ -138,6 +134,10 @@ Built-in Data Types:
   * X: Hexadecimal
   * STRING: Variable-length string
   * XSTRING: Variable-length raw byte array
+
+> **Hex values and strings (if they are being compared with another string) must be in all-caps**  
+> **Escape single quotes in strings with a single quote**  
+> **You may have to include single quotes around some other data types**  
 
 | Data Type | Internal Description | Default Internal Length | Max Internal Length | Valid Values | Default Initial Value |
 | --------- | -------------------- | ----------------------- | ------------------- | ------------ | --------------------- |
