@@ -116,6 +116,12 @@ Built-in Data Types:
 | t         | time                 | 6 (fixed)               | -                   | 0-9          | 00000000              |
 | x         | hexadecimal          | 1                       | 65535               | Any          |                       |
 
+| Data Type | Description    | Default Internal Length | Max Length | Max Decimals      | Valid Values    | Default Initial Value |
+| --------- | -------------- | ----------------------- | ---------- | ----------------- | --------------- | --------------------- |
+| i         | integer        | 4(fixed)                | -          | 0                 | -231 to +231    | 0                     |
+| p         | packed decimal | 8                       | 16         | 14                | 0-9             | 0                     |
+| f         | floating-point | 8                       | 8          | 15 (Also depends) | -1E307 to 1E308 | 0.0                   |
+
 * **Date**
   * **Format:** YYYYMMDD
   * **Current Date:** sydatum
