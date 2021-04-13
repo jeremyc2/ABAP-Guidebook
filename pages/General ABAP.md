@@ -88,12 +88,12 @@ Data Dictionary:
   7. Search helps: List of possible values for a field
   8. Lock objects: Controls access, prevents race conditions
 
-* **Hex values and strings (if they are being compared with another string) must be in all-caps**
-* **Escape single quotes in strings with a single quote**
-* **You may have to include single quotes around some other data types**
+> **Hex values and strings (if they are being compared with another string) must be in all-caps**  
+> **Escape single quotes in strings with a single quote**  
+> **You may have to include single quotes around some other data types**  
 
 ### The Data Statement
-*data v1[(1)] [type t] [decimals d] [value 'xxx']*
+> *data v1[(1)] [type t] [decimals d] [value 'xxx']*  
 *data v1 like v2 [value 'xxx']*
 
 Built-in Data Types:
@@ -104,9 +104,29 @@ Built-in Data Types:
   * C: Character
   * D: Date
   * T: Time
-  * X: Hexadecimal
+  * X: Hexade**Current Time:** cimal
   * STRING: Variable-length string
   * XSTRING: Variable-length raw byte array
+
+| Data Type | Internal Description | Default Internal Length | Max Internal Length | Valid Values | Default Initial Value |
+| --------- | -------------------- | ----------------------- | ------------------- | ------------ | --------------------- |
+| c         | character            | 1                       | 65535               | Any Char     | Blank                 |
+| n         | numeric text         | 1                       | 65535               | 0-9          | 0                     |
+| d         | date                 | 8 (fixed)               | -                   | 0-9          | 00000000              |
+| t         | time                 | 6 (fixed)               | -                   | 0-9          | 00000000              |
+| x         | hexadecimal          | 1                       | 65535               | Any          |                       |
+
+* **Date**
+  * **Format:** YYYYMMDD
+  * **Current Date:** sydatum
+* **Time**
+  * **Format:** HHMMSS
+  * **Current Time:** sy-uzeis
+
+> The values of sy-datum and sy-uzeit are set at the beginning of program execution
+and do not change until the program ends. If you need access to the most current date and
+time during execution of a long-running pro-gram, use the statement get time. It updates
+the values of sy-datum and sy-uzeit to reflect the current date and time.
 
 Message types:
   * A: Abend

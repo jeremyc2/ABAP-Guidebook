@@ -135,14 +135,16 @@ Remember <a href="https://en.wikipedia.org/wiki/ABAP#Chained_statements">Chained
 <li>Search helps: List of possible values for a field</li>
 <li>Lock objects: Controls access, prevents race conditions</li>
 </ol>
-<ul>
-<li><strong>Hex values and strings (if they are being compared with another string) must be in all-caps</strong></li>
-<li><strong>Escape single quotes in strings with a single quote</strong></li>
-<li><strong>You may have to include single quotes around some other data types</strong></li>
-</ul>
+<blockquote>
+<p><strong>Hex values and strings (if they are being compared with another string) must be in all-caps</strong><br>
+<strong>Escape single quotes in strings with a single quote</strong><br>
+<strong>You may have to include single quotes around some other data types</strong></p>
+</blockquote>
 <h3 id="the-data-statement">The Data Statement</h3>
-<p><em>data v1[(1)] [type t] [decimals d] [value 'xxx']</em>
+<blockquote>
+<p><em>data v1[(1)] [type t] [decimals d] [value 'xxx']</em><br>
 <em>data v1 like v2 [value 'xxx']</em></p>
+</blockquote>
 <p>Built-in Data Types:</p>
 <ul>
 <li>I: Integer</li>
@@ -152,10 +154,84 @@ Remember <a href="https://en.wikipedia.org/wiki/ABAP#Chained_statements">Chained
 <li>C: Character</li>
 <li>D: Date</li>
 <li>T: Time</li>
-<li>X: Hexadecimal</li>
+<li>X: Hexade<strong>Current Time:</strong> cimal</li>
 <li>STRING: Variable-length string</li>
 <li>XSTRING: Variable-length raw byte array</li>
 </ul>
+<table>
+<thead>
+<tr>
+<th>Data Type</th>
+<th>Internal Description</th>
+<th>Default Internal Length</th>
+<th>Max Internal Length</th>
+<th>Valid Values</th>
+<th>Default Initial Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>c</td>
+<td>character</td>
+<td>1</td>
+<td>65535</td>
+<td>Any Char</td>
+<td>Blank</td>
+</tr>
+<tr>
+<td>n</td>
+<td>numeric text</td>
+<td>1</td>
+<td>65535</td>
+<td>0-9</td>
+<td>0</td>
+</tr>
+<tr>
+<td>d</td>
+<td>date</td>
+<td>8 (fixed)</td>
+<td>-</td>
+<td>0-9</td>
+<td>00000000</td>
+</tr>
+<tr>
+<td>t</td>
+<td>time</td>
+<td>6 (fixed)</td>
+<td>-</td>
+<td>0-9</td>
+<td>00000000</td>
+</tr>
+<tr>
+<td>x</td>
+<td>hexadecimal</td>
+<td>1</td>
+<td>65535</td>
+<td>Any</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Date</strong>
+<ul>
+<li><strong>Format:</strong> YYYYMMDD</li>
+<li><strong>Current Date:</strong> sydatum</li>
+</ul>
+</li>
+<li><strong>Time</strong>
+<ul>
+<li><strong>Format:</strong> HHMMSS</li>
+<li><strong>Current Time:</strong> sy-uzeis</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>The values of sy-datum and sy-uzeit are set at the beginning of program execution
+and do not change until the program ends. If you need access to the most current date and
+time during execution of a long-running pro-gram, use the statement get time. It updates
+the values of sy-datum and sy-uzeit to reflect the current date and time.</p>
+</blockquote>
 <p>Message types:</p>
 <ul>
 <li>A: Abend</li>
