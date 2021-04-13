@@ -112,8 +112,10 @@ data v1 like v2 [value 'xxx']
 parameters p1 like v1 [default 'xxx'] [obligatory] [lower case] [as checkbox] [radiobutton group g]  
 ```
 
+*You can change the parameter input field labels via the menu path Goto->Text Elements.*
+
 <details closed>
-<summary>Tips</summary>  
+<summary>Parameter Tips</summary>  
 
 Always use the like addition to define a parameter. When you use it, the parameter acquires the following attributes from the Data Dictionary:  
 * F1 help is acquired from the Documentation button in the data element.  
