@@ -7,7 +7,7 @@
 
 - [SAP Tables](#sap-tables)
   - [General Notes](#general-notes)
-    - [The Data Statement](#the-data-statement)
+    - [Data and Parameters Statements](#data-and-parameters-statements)
   - [T-Codes](#t-codes)
     - [Standard T-Codes](#standard-t-codes)
     - [Special T-Codes](#special-t-codes)
@@ -92,7 +92,7 @@ Data Dictionary:
 > **Escape single quotes in strings with a single quote**  
 > **You may have to include single quotes around some other data types**  
 
-### The Data Statement
+### Data and Parameters Statements
 > *data v1[(1)] [type t] [decimals d] [value 'xxx']*  
 *data v1 like v2 [value 'xxx']*  
 
