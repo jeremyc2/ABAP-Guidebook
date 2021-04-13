@@ -7,6 +7,7 @@
 
 - [SAP Tables](#sap-tables)
   - [General Notes](#general-notes)
+    - [The Data Statement](#the-data-statement)
   - [T-Codes](#t-codes)
     - [Standard T-Codes](#standard-t-codes)
     - [Special T-Codes](#special-t-codes)
@@ -86,6 +87,14 @@ Data Dictionary:
   6. Domains: Characteristics of data elements. Can also contain possible values
   7. Search helps: List of possible values for a field
   8. Lock objects: Controls access, prevents race conditions
+
+* **Hex values and strings (if they are being compared with another string) must be in all-caps**
+* **Escape single quotes in strings with a single quote**
+* **You may have to include single quotes around some other data types**
+
+### The Data Statement
+*data v1[(1)] [type t] [decimals d] [value 'xxx']*
+*data v1 like v2 [value 'xxx']*
 
 Built-in Data Types:
   * I: Integer
