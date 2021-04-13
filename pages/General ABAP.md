@@ -93,12 +93,24 @@ Data Dictionary:
 > **You may have to include single quotes around some other data types**  
 
 ### Data and Parameters Statements
-> *data v1[(1)] [type t] [decimals d] [value 'xxx']*  
-*data v1 like v2 [value 'xxx']*  
 
-> parameters p1[(l)] [type t] [decimals d] ...
-or
-parameters p1 like v1 ... [default 'xxx'] [obligatory] [lower case] [as checkbox] [radiobutton group g].
+```
+data v1[(1)] [type t] [decimals d] [value 'xxx']  
+```
+
+```
+data v1 like v2 [value 'xxx']  
+```
+
+</br>
+
+```
+ parameters p1[(1)] [type t] [decimals d] [default 'xxx'] [obligatory] [lower case] [as checkbox] [radiobutton group g]  
+ ```
+
+ ```
+parameters p1 like v1 [default 'xxx'] [obligatory] [lower case] [as checkbox] [radiobutton group g]  
+```
 
 Built-in Data Types:
   * I: Integer
@@ -108,7 +120,7 @@ Built-in Data Types:
   * C: Character
   * D: Date
   * T: Time
-  * X: Hexade**Current Time:** cimal
+  * X: Hexadecimal
   * STRING: Variable-length string
   * XSTRING: Variable-length raw byte array
 

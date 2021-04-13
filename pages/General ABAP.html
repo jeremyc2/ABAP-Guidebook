@@ -141,15 +141,15 @@ Remember <a href="https://en.wikipedia.org/wiki/ABAP#Chained_statements">Chained
 <strong>You may have to include single quotes around some other data types</strong></p>
 </blockquote>
 <h3 id="data-and-parameters-statements">Data and Parameters Statements</h3>
-<blockquote>
-<p><em>data v1[(1)] [type t] [decimals d] [value 'xxx']</em><br>
-<em>data v1 like v2 [value 'xxx']</em></p>
-</blockquote>
-<blockquote>
-<p>parameters p1[(l)] [type t] [decimals d] ...
-or
-parameters p1 like v1 ... [default 'xxx'] [obligatory] [lower case] [as checkbox] [radiobutton group g].</p>
-</blockquote>
+<pre><code><code><div>data v1[(1)] [type t] [decimals d] [value 'xxx']  
+</div></code></code></pre>
+<pre><code><code><div>data v1 like v2 [value 'xxx']  
+</div></code></code></pre>
+</br>
+<pre><code><code><div> parameters p1[(1)] [type t] [decimals d] [default 'xxx'] [obligatory] [lower case] [as checkbox] [radiobutton group g]  
+</div></code></code></pre>
+<pre><code><code><div>parameters p1 like v1 [default 'xxx'] [obligatory] [lower case] [as checkbox] [radiobutton group g]  
+</div></code></code></pre>
 <p>Built-in Data Types:</p>
 <ul>
 <li>I: Integer</li>
@@ -159,7 +159,7 @@ parameters p1 like v1 ... [default 'xxx'] [obligatory] [lower case] [as checkbox
 <li>C: Character</li>
 <li>D: Date</li>
 <li>T: Time</li>
-<li>X: Hexade<strong>Current Time:</strong> cimal</li>
+<li>X: Hexadecimal</li>
 <li>STRING: Variable-length string</li>
 <li>XSTRING: Variable-length raw byte array</li>
 </ul>
