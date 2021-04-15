@@ -1,4 +1,5 @@
 <!-- title: ABAP Development Notes -->
+<script src="https://jeremyc2.github.io/CDN/sync-favicon-with-title.js"></script>
 <script src="https://jeremyc2.github.io/CDN/markdown-themes.js"></script>
 
 # SAP Tables
