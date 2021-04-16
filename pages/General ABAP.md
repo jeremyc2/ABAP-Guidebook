@@ -9,6 +9,8 @@
 - [SAP Tables](#sap-tables)
   - [General Notes](#general-notes)
     - [Data and Parameters Statements](#data-and-parameters-statements)
+    - [Field Symbols](#field-symbols)
+    - [Assignment Statements](#assignment-statements)
   - [T-Codes](#t-codes)
     - [Standard T-Codes](#standard-t-codes)
     - [Special T-Codes](#special-t-codes)
@@ -170,9 +172,24 @@ Message types:
   * A: Abend
   * E: Error
   * I: Information
-  * S: Success, Status
+  * S: Success/Status
   * W: Warning
   * X: Exit (Terminates and logs info to T-Code ST22)
+
+### Field Symbols
+
+A **field-symbol** is a pointer you can dynamically assign
+to a field. After assignment, you can use the field-symbol
+anywhere in your program in place of the actual field
+name. Use the field-symbol statement to define a
+field-symbol, and use assign to assign a field to it. The
+field-symbol name must begin and end with angle brackets.
+
+### Assignment Statements
+
+* Clear
+* Move (equivalent to the assignment operator =)
+* Move-corresponding
 
 ## T-Codes
 

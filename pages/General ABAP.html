@@ -35,6 +35,8 @@
 <li><a href="#general-notes">General Notes</a>
 <ul>
 <li><a href="#data-and-parameters-statements">Data and Parameters Statements</a></li>
+<li><a href="#field-symbols">Field Symbols</a></li>
+<li><a href="#assignment-statements">Assignment Statements</a></li>
 </ul>
 </li>
 <li><a href="#t-codes">T-Codes</a>
@@ -298,9 +300,22 @@ the values of sy-datum and sy-uzeit to reflect the current date and time.</p>
 <li>A: Abend</li>
 <li>E: Error</li>
 <li>I: Information</li>
-<li>S: Success, Status</li>
+<li>S: Success/Status</li>
 <li>W: Warning</li>
 <li>X: Exit (Terminates and logs info to T-Code ST22)</li>
+</ul>
+<h3 id="field-symbols">Field Symbols</h3>
+<p>A <strong>field-symbol</strong> is a pointer you can dynamically assign
+to a field. After assignment, you can use the field-symbol
+anywhere in your program in place of the actual field
+name. Use the field-symbol statement to define a
+field-symbol, and use assign to assign a field to it. The
+field-symbol name must begin and end with angle brackets.</p>
+<h3 id="assignment-statements">Assignment Statements</h3>
+<ul>
+<li>Clear</li>
+<li>Move (equivalent to the assignment operator =)</li>
+<li>Move-corresponding</li>
 </ul>
 <h2 id="t-codes">T-Codes</h2>
 <p><strong>Table TSTC:</strong> All T-Codes can be viewed</p>
