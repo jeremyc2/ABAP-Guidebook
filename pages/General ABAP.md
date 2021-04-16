@@ -464,6 +464,7 @@ while exp [ vary f1 from s-c1 next s-c2 [ vary f2 from s2-c1 next s2-c2 ... ]
 ## Cool Things
 
 [ABAP in 21 Days HTML][11]  
+[ABAP in 21 Days PDF][12]  
 [ABAP Wikipedia][2]  
 [GURU 99 Tutorial][6]  
 [New String Options][3]  
@@ -514,6 +515,7 @@ Add the following to  your markdown snippets and make sure quick suggestions are
 [9]: https://help.sap.com/doc/abapdocu_750_index_htm/7.50/en-US/abenitab.htm
 [10]: https://www.guru99.com/alv-list-view-programming.html
 [11]: ABAP%20in%2021%20Days.html
+[12]: abapin21days.pdf
 [ABAP-Docu]: http://sapdr4a21.wal-mart.com:8050/sap/public/bc/abap/docu?sap-language=EN&format=STANDARD&object=ABENABAP&tree=X
 [MD-All-In-One]: https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one
 [Run-On-Save]: https://marketplace.visualstudio.com/items?itemName=pucelle.run-on-save
