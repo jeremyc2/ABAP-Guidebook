@@ -38,6 +38,7 @@
 <li><a href="#field-symbols">Field Symbols</a></li>
 <li><a href="#assignment-statements">Assignment Statements</a></li>
 <li><a href="#string-special-comparison-operators">String Special Comparison Operators</a></li>
+<li><a href="#loops">Loops</a></li>
 </ul>
 </li>
 <li><a href="#t-codes">T-Codes</a>
@@ -58,7 +59,7 @@
 <li><a href="#field-symbols-1">Field Symbols</a></li>
 <li><a href="#create-internal-table-using-values-construct">Create Internal Table Using Values Construct</a></li>
 <li><a href="#case-statement">Case Statement</a></li>
-<li><a href="#loops">Loops</a></li>
+<li><a href="#loops-1">Loops</a></li>
 </ul>
 </li>
 <li><a href="#cool-things">Cool Things</a></li>
@@ -383,6 +384,33 @@ field-symbol name must begin and end with angle brackets.</p>
 </tbody>
 </table>
 <p><em>Tip: Use # to escape a character in operators which are not case sensitive</em></p>
+<h3 id="loops">Loops</h3>
+<ul>
+<li>Do</li>
+<li>While</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Statement</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exit</td>
+<td>Leaves the current loop</td>
+</tr>
+<tr>
+<td>Continue</td>
+<td>Unconditional jump to the end of the loop</td>
+</tr>
+<tr>
+<td>Check exp</td>
+<td>Jumps to the end of the loop if exp is false</td>
+</tr>
+</tbody>
+</table>
 <h2 id="t-codes">T-Codes</h2>
 <p><strong>Table TSTC:</strong> All T-Codes can be viewed</p>
 <p><a href="https://www.system-overload.org/sap/transaction-codes.html">T-Codes By Category</a></p>
@@ -690,7 +718,7 @@ cl_demo_output=&gt;display( tab3 ).
   endcase.
 </div></code></code></pre>
 </details>
-<h3 id="loops">Loops</h3>
+<h3 id="loops-1">Loops</h3>
 <details open>
 <summary>Code</summary>
 <pre><code><code><div>do [ v1 times ] [ varying f1 from s-c1 next s-c2 [ varying f2 from s2-c1 next s2-
@@ -699,6 +727,12 @@ c2 ... ] ].
 [exit.]
 ---
 enddo.
+
+while exp [ vary f1 from s-c1 next s-c2 [ vary f2 from s2-c1 next s2-c2 ... ]
+  ---
+  [ exit. ]
+  ---
+  endwhile.
 </div></code></code></pre>
 </details>
 <h2 id="cool-things">Cool Things</h2>

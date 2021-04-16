@@ -12,6 +12,7 @@
     - [Field Symbols](#field-symbols)
     - [Assignment Statements](#assignment-statements)
     - [String Special Comparison Operators](#string-special-comparison-operators)
+    - [Loops](#loops)
   - [T-Codes](#t-codes)
     - [Standard T-Codes](#standard-t-codes)
     - [Special T-Codes](#special-t-codes)
@@ -26,7 +27,7 @@
     - [Field Symbols](#field-symbols-1)
     - [Create Internal Table Using Values Construct](#create-internal-table-using-values-construct)
     - [Case Statement](#case-statement)
-    - [Loops](#loops)
+    - [Loops](#loops-1)
   - [Cool Things](#cool-things)
   - [TODO List](#todo-list)
   - [VS Code Markdown Help](#vs-code-markdown-help)
@@ -209,6 +210,17 @@ field-symbol name must begin and end with angle brackets.
 | NP       | Does not contain pattern | No             | Yes                     |
 
 *Tip: Use # to escape a character in operators which are not case sensitive*
+
+### Loops
+
+* Do
+* While
+
+| Statement | Effect                                       |
+| --------- | -------------------------------------------- |
+| Exit      | Leaves the current loop                      |
+| Continue  | Unconditional jump to the end of the loop    |
+| Check exp | Jumps to the end of the loop if exp is false |
 
 ## T-Codes
 
@@ -440,6 +452,12 @@ c2 ... ] ].
 [exit.]
 ---
 enddo.
+
+while exp [ vary f1 from s-c1 next s-c2 [ vary f2 from s2-c1 next s2-c2 ... ]
+  ---
+  [ exit. ]
+  ---
+  endwhile.
 ```
 </details>
 
