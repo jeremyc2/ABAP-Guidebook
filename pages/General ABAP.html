@@ -54,6 +54,7 @@
 <li><a href="#explicitly-typed-declaration">Explicitly typed declaration</a></li>
 <li><a href="#implicit-inline-declaration-since-abap-740">Implicit inline declaration (Since ABAP 7.40)</a></li>
 <li><a href="#define-internal-tables">Define Internal tables</a></li>
+<li><a href="#field-symbols-1">Field Symbols</a></li>
 <li><a href="#create-internal-table-using-values-construct">Create Internal Table Using Values Construct</a></li>
 </ul>
 </li>
@@ -558,6 +559,18 @@ DATA : gs_vbrk TYPE t_vbrk,
 
 * You can also define table type if needed
 TYPES tt_vbrk TYPE STANDARD TABLE OF t_vbrk.
+</div></code></code></pre>
+</details>
+<h3 id="field-symbols-1">Field Symbols</h3>
+<details open>
+<summary>Code</summary>
+<pre><code><code><div>report ztx0915.
+data f1(3) value 'ABC'.
+field-symbols &lt;f&gt;.
+assign f1 to &lt;f&gt;. &quot;&lt;f&gt; can now be used in place of f1
+write &lt;f&gt;. &quot;writes the contents of f1
+&lt;f&gt; = 'XYZ'. &quot;assigns a new value to f1
+write / f1.
 </div></code></code></pre>
 </details>
 <h3 id="create-internal-table-using-values-construct">Create Internal Table Using Values Construct</h3>

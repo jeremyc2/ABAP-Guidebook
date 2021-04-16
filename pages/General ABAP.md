@@ -22,6 +22,7 @@
     - [Explicitly typed declaration](#explicitly-typed-declaration)
     - [Implicit inline declaration (Since ABAP 7.40)](#implicit-inline-declaration-since-abap-740)
     - [Define Internal tables](#define-internal-tables)
+    - [Field Symbols](#field-symbols-1)
     - [Create Internal Table Using Values Construct](#create-internal-table-using-values-construct)
   - [Cool Things](#cool-things)
   - [TODO List](#todo-list)
@@ -333,6 +334,21 @@ DATA : gs_vbrk TYPE t_vbrk,
 
 * You can also define table type if needed
 TYPES tt_vbrk TYPE STANDARD TABLE OF t_vbrk.
+```
+</details>
+
+### Field Symbols
+<details open>
+<summary>Code</summary>
+
+```
+report ztx0915.
+data f1(3) value 'ABC'.
+field-symbols <f>.
+assign f1 to <f>. "<f> can now be used in place of f1
+write <f>. "writes the contents of f1
+<f> = 'XYZ'. "assigns a new value to f1
+write / f1.
 ```
 </details>
 
