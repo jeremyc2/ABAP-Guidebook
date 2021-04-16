@@ -37,6 +37,7 @@
 <li><a href="#data-and-parameters-statements">Data and Parameters Statements</a></li>
 <li><a href="#field-symbols">Field Symbols</a></li>
 <li><a href="#assignment-statements">Assignment Statements</a></li>
+<li><a href="#string-special-comparison-operators">String Special Comparison Operators</a></li>
 </ul>
 </li>
 <li><a href="#t-codes">T-Codes</a>
@@ -56,6 +57,8 @@
 <li><a href="#define-internal-tables">Define Internal tables</a></li>
 <li><a href="#field-symbols-1">Field Symbols</a></li>
 <li><a href="#create-internal-table-using-values-construct">Create Internal Table Using Values Construct</a></li>
+<li><a href="#case-statement">Case Statement</a></li>
+<li><a href="#loops">Loops</a></li>
 </ul>
 </li>
 <li><a href="#cool-things">Cool Things</a></li>
@@ -318,6 +321,68 @@ field-symbol name must begin and end with angle brackets.</p>
 <li>Move (equivalent to the assignment operator =)</li>
 <li>Move-corresponding</li>
 </ul>
+<h3 id="string-special-comparison-operators">String Special Comparison Operators</h3>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Definition</th>
+<th>Case Sensitive</th>
+<th>Trailing Blanks Ignored</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CO</td>
+<td>Contains Only</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>CN</td>
+<td>Does not contain only</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>Contains Any</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>NA</td>
+<td>Does not contain any</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>CS</td>
+<td>Contains String</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>NS</td>
+<td>Does not contain string</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>CP</td>
+<td>Contains Pattern</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>NP</td>
+<td>Does not contain pattern</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p><em>Tip: Use # to escape a character in operators which are not case sensitive</em></p>
 <h2 id="t-codes">T-Codes</h2>
 <p><strong>Table TSTC:</strong> All T-Codes can be viewed</p>
 <p><a href="https://www.system-overload.org/sap/transaction-codes.html">T-Codes By Category</a></p>
@@ -610,6 +675,30 @@ DATA(tab3) = VALUE itab2( BASE base1
 cl_demo_output=&gt;write(   tab1  ).
 cl_demo_output=&gt;write(   tab2 ).
 cl_demo_output=&gt;display( tab3 ).
+</div></code></code></pre>
+</details>
+<h3 id="case-statement">Case Statement</h3>
+<details open>
+<summary>Code</summary>
+<pre><code><code><div>case v1.
+  when v2 [ or vn ... ].
+    ---
+  when v3 [ or vn ... ].
+    ---
+  [ when others.
+    --- ]
+  endcase.
+</div></code></code></pre>
+</details>
+<h3 id="loops">Loops</h3>
+<details open>
+<summary>Code</summary>
+<pre><code><code><div>do [ v1 times ] [ varying f1 from s-c1 next s-c2 [ varying f2 from s2-c1 next s2-
+c2 ... ] ].
+---
+[exit.]
+---
+enddo.
 </div></code></code></pre>
 </details>
 <h2 id="cool-things">Cool Things</h2>

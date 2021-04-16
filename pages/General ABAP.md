@@ -11,6 +11,7 @@
     - [Data and Parameters Statements](#data-and-parameters-statements)
     - [Field Symbols](#field-symbols)
     - [Assignment Statements](#assignment-statements)
+    - [String Special Comparison Operators](#string-special-comparison-operators)
   - [T-Codes](#t-codes)
     - [Standard T-Codes](#standard-t-codes)
     - [Special T-Codes](#special-t-codes)
@@ -24,6 +25,8 @@
     - [Define Internal tables](#define-internal-tables)
     - [Field Symbols](#field-symbols-1)
     - [Create Internal Table Using Values Construct](#create-internal-table-using-values-construct)
+    - [Case Statement](#case-statement)
+    - [Loops](#loops)
   - [Cool Things](#cool-things)
   - [TODO List](#todo-list)
   - [VS Code Markdown Help](#vs-code-markdown-help)
@@ -191,6 +194,21 @@ field-symbol name must begin and end with angle brackets.
 * Clear
 * Move (equivalent to the assignment operator =)
 * Move-corresponding
+
+### String Special Comparison Operators
+
+| Operator | Definition               | Case Sensitive | Trailing Blanks Ignored |
+| -------- | ------------------------ | -------------- | ----------------------- |
+| CO       | Contains Only            | Yes            | No                      |
+| CN       | Does not contain only    | Yes            | No                      |
+| CA       | Contains Any             | Yes            | No                      |
+| NA       | Does not contain any     | Yes            | No                      |
+| CS       | Contains String          | No             | Yes                     |
+| NS       | Does not contain string  | No             | Yes                     |
+| CP       | Contains Pattern         | No             | Yes                     |
+| NP       | Does not contain pattern | No             | Yes                     |
+
+*Tip: Use # to escape a character in operators which are not case sensitive*
 
 ## T-Codes
 
@@ -391,6 +409,37 @@ DATA(tab3) = VALUE itab2( BASE base1
 cl_demo_output=>write(   tab1  ).
 cl_demo_output=>write(   tab2 ).
 cl_demo_output=>display( tab3 ).
+```
+</details>
+
+### Case Statement
+<details open>
+<summary>Code</summary>
+
+```
+case v1.
+  when v2 [ or vn ... ].
+    ---
+  when v3 [ or vn ... ].
+    ---
+  [ when others.
+    --- ]
+  endcase.
+```
+</details>
+
+### Loops
+
+<details open>
+<summary>Code</summary>
+
+```
+do [ v1 times ] [ varying f1 from s-c1 next s-c2 [ varying f2 from s2-c1 next s2-
+c2 ... ] ].
+---
+[exit.]
+---
+enddo.
 ```
 </details>
 
