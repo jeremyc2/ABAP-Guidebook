@@ -62,6 +62,7 @@
 <li><a href="#explicitly-typed-declaration">Explicitly typed declaration</a></li>
 <li><a href="#implicit-inline-declaration-since-abap-740">Implicit inline declaration (Since ABAP 7.40)</a></li>
 <li><a href="#define-internal-tables">Define Internal tables</a></li>
+<li><a href="#internal-tables-example-1">Internal Tables Example 1</a></li>
 <li><a href="#field-symbols-1">Field Symbols</a></li>
 <li><a href="#create-internal-table-using-values-construct">Create Internal Table Using Values Construct</a></li>
 <li><a href="#case-statement">Case Statement</a></li>
@@ -681,34 +682,40 @@ DATA : gs_vbrk TYPE t_vbrk,
 TYPES tt_vbrk TYPE STANDARD TABLE OF t_vbrk.
 </div></code></code></pre>
 </details>
+<h3 id="internal-tables-example-1">Internal Tables Example 1</h3>
 <details open>
 <summary>Code</summary>
-<p>report ztx1106.
+<pre><code><code><div>report ztx1106.
 data: begin of it occurs 3,
-f1(2) type n,
-f2 type i,
-f3(2) type c,
-f4 type p,
-end of it,
-wa like it.</p>
-<p>it-f1 = '10'. it-f3 = 'AA'. it-f2 = it-f4 = 1. append it.
+    f1(2) type n,
+    f2 type i,
+    f3(2) type c,
+    f4 type p,
+  end of it,
+  wa like it.
+
+it-f1 = '10'. it-f3 = 'AA'. it-f2 = it-f4 = 1. append it.
 it-f1 = '20'. it-f3 = 'BB'. it-f2 = it-f4 = 2. append it.
-it-f1 = '30'. it-f3 = 'CC'. it-f2 = it-f4 = 3. append it.</p>
-<p>write: / 'sy-subrc =', sy-subrc,
-/ 'sy-tabix =', sy-tabix,
-/ it-f1, it-f2, it-f3, it-f4.</p>
-<p>read table it into wa index 1.
+it-f1 = '30'. it-f3 = 'CC'. it-f2 = it-f4 = 3. append it.
+
+write: / 'sy-subrc =', sy-subrc,
+  / 'sy-tabix =', sy-tabix,
+  / it-f1, it-f2, it-f3, it-f4.
+
+read table it into wa index 1.
 write: /,
-/ 'sy-subrc =', sy-subrc,
-/ 'sy-tabix =', sy-tabix,
-/ it-f1, it-f2, it-f3, it-f4,
-/ wa-f1, wa-f2, wa-f3, wa-f4.</p>
-<p>read table it index 4.
+  / 'sy-subrc =', sy-subrc,
+  / 'sy-tabix =', sy-tabix,
+  / it-f1, it-f2, it-f3, it-f4,
+  / wa-f1, wa-f2, wa-f3, wa-f4.
+
+read table it index 4.
 write: /,
-/ 'sy-subrc =', sy-subrc,
-/ 'sy-tabix =', sy-tabix,
-/ it-f1, it-f2, it-f3, it-f4,
-/ wa-f1, wa-f2, wa-f3, wa-f4.</p>
+  / 'sy-subrc =', sy-subrc,
+  / 'sy-tabix =', sy-tabix,
+  / it-f1, it-f2, it-f3, it-f4,
+  / wa-f1, wa-f2, wa-f3, wa-f4.
+</div></code></code></pre>
 </details>
 <h3 id="field-symbols-1">Field Symbols</h3>
 <details open>

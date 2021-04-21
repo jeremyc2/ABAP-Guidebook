@@ -27,6 +27,7 @@
     - [Explicitly typed declaration](#explicitly-typed-declaration)
     - [Implicit inline declaration (Since ABAP 7.40)](#implicit-inline-declaration-since-abap-740)
     - [Define Internal tables](#define-internal-tables)
+    - [Internal Tables Example 1](#internal-tables-example-1)
     - [Field Symbols](#field-symbols-1)
     - [Create Internal Table Using Values Construct](#create-internal-table-using-values-construct)
     - [Case Statement](#case-statement)
@@ -400,9 +401,11 @@ TYPES tt_vbrk TYPE STANDARD TABLE OF t_vbrk.
 ```
 </details>
 
+### Internal Tables Example 1
 <details open>
 <summary>Code</summary>
 
+```
 report ztx1106.
 data: begin of it occurs 3,
     f1(2) type n,
@@ -433,6 +436,7 @@ write: /,
   / 'sy-tabix =', sy-tabix,
   / it-f1, it-f2, it-f3, it-f4,
   / wa-f1, wa-f2, wa-f3, wa-f4.
+```
 </details>
 
 ### Field Symbols
