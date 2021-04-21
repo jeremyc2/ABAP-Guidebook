@@ -18,6 +18,9 @@
     - [Special T-Codes](#special-t-codes)
   - [My Local Development Objects](#my-local-development-objects)
   - [ABAP CRUD](#abap-crud)
+  - [Internal Tables](#internal-tables)
+    - [The Append Statement](#the-append-statement)
+    - [Reading from Internal Table](#reading-from-internal-table)
   - [ABAP Code Snippets](#abap-code-snippets)
     - [Hello World](#hello-world)
     - [Get Last Day of Previous Month](#get-last-day-of-previous-month)
@@ -265,7 +268,6 @@ field-symbol name must begin and end with angle brackets.
 ## ABAP CRUD
 
 [Open SQL][8]  
-[Internal Tables][9]  
 
 | Operation |           | Code                                                                         |
 | --------- | --------- | ---------------------------------------------------------------------------- |
@@ -274,6 +276,30 @@ field-symbol name must begin and end with angle brackets.
 | Update    | PUT/PATCH | Update *table* set *workarea*                                                |
 | Delete    | DELETE    | Delete from *table*                                                          |
 | Query     | GET       | Select \*  from *table* into *table*                                         |
+
+## Internal Tables
+
+[Internal Tables][9]  
+
+### The Append Statement
+
+*append [wa to] [initial line to] it.*  
+
+* *wa* is the name of a work area.  
+* *it* is the name of a previously defined internal table.  
+
+*Occurs* does not limit the number of rows that can be added to an internal table. The number of rows you can put into an internal table is theoretically only limited by the amount of virtual memory available on the application server. *Occurs* only serves as a guideline for the program.  
+
+### Reading from Internal Table
+
+1. Loop at
+2. Read at
+
+```
+loop at it [into wa] [from m] [to n] [where exp].
+---
+endloop.
+```
 
 ## ABAP Code Snippets
 

@@ -49,6 +49,12 @@
 </li>
 <li><a href="#my-local-development-objects">My Local Development Objects</a></li>
 <li><a href="#abap-crud">ABAP CRUD</a></li>
+<li><a href="#internal-tables">Internal Tables</a>
+<ul>
+<li><a href="#the-append-statement">The Append Statement</a></li>
+<li><a href="#reading-from-internal-table">Reading from Internal Table</a></li>
+</ul>
+</li>
 <li><a href="#abap-code-snippets">ABAP Code Snippets</a>
 <ul>
 <li><a href="#hello-world">Hello World</a></li>
@@ -540,8 +546,7 @@ field-symbol name must begin and end with angle brackets.</p>
 </tbody>
 </table>
 <h2 id="abap-crud">ABAP CRUD</h2>
-<p><a href="https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenopensql.htm">Open SQL</a><br>
-<a href="https://help.sap.com/doc/abapdocu_750_index_htm/7.50/en-US/abenitab.htm">Internal Tables</a></p>
+<p><a href="https://help.sap.com/doc/abapdocu_751_index_htm/7.51/en-US/abenopensql.htm">Open SQL</a></p>
 <table>
 <thead>
 <tr>
@@ -578,6 +583,24 @@ field-symbol name must begin and end with angle brackets.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="internal-tables">Internal Tables</h2>
+<p><a href="https://help.sap.com/doc/abapdocu_750_index_htm/7.50/en-US/abenitab.htm">Internal Tables</a></p>
+<h3 id="the-append-statement">The Append Statement</h3>
+<p><em>append [wa to] [initial line to] it.</em></p>
+<ul>
+<li><em>wa</em> is the name of a work area.</li>
+<li><em>it</em> is the name of a previously defined internal table.</li>
+</ul>
+<p><em>Occurs</em> does not limit the number of rows that can be added to an internal table. The number of rows you can put into an internal table is theoretically only limited by the amount of virtual memory available on the application server. <em>Occurs</em> only serves as a guideline for the program.</p>
+<h3 id="reading-from-internal-table">Reading from Internal Table</h3>
+<ol>
+<li>Loop at</li>
+<li>Read at</li>
+</ol>
+<pre><code><code><div>loop at it [into wa] [from m] [to n] [where exp].
+---
+endloop.
+</div></code></code></pre>
 <h2 id="abap-code-snippets">ABAP Code Snippets</h2>
 <h3 id="hello-world">Hello World</h3>
 <details open>
