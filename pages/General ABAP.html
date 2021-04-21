@@ -601,6 +601,10 @@ field-symbol name must begin and end with angle brackets.</p>
 ---
 endloop.
 </div></code></code></pre>
+<p>For reading a single table, use <em>Read Table</em></p>
+<pre><code><code><div>read table it [into wa] [index i | with key keyexp [binary search] ] [comparing
+cmpexp] [transporting texp].
+</div></code></code></pre>
 <h2 id="abap-code-snippets">ABAP Code Snippets</h2>
 <h3 id="hello-world">Hello World</h3>
 <details open>
@@ -676,6 +680,35 @@ DATA : gs_vbrk TYPE t_vbrk,
 * You can also define table type if needed
 TYPES tt_vbrk TYPE STANDARD TABLE OF t_vbrk.
 </div></code></code></pre>
+</details>
+<details open>
+<summary>Code</summary>
+<p>report ztx1106.
+data: begin of it occurs 3,
+f1(2) type n,
+f2 type i,
+f3(2) type c,
+f4 type p,
+end of it,
+wa like it.</p>
+<p>it-f1 = '10'. it-f3 = 'AA'. it-f2 = it-f4 = 1. append it.
+it-f1 = '20'. it-f3 = 'BB'. it-f2 = it-f4 = 2. append it.
+it-f1 = '30'. it-f3 = 'CC'. it-f2 = it-f4 = 3. append it.</p>
+<p>write: / 'sy-subrc =', sy-subrc,
+/ 'sy-tabix =', sy-tabix,
+/ it-f1, it-f2, it-f3, it-f4.</p>
+<p>read table it into wa index 1.
+write: /,
+/ 'sy-subrc =', sy-subrc,
+/ 'sy-tabix =', sy-tabix,
+/ it-f1, it-f2, it-f3, it-f4,
+/ wa-f1, wa-f2, wa-f3, wa-f4.</p>
+<p>read table it index 4.
+write: /,
+/ 'sy-subrc =', sy-subrc,
+/ 'sy-tabix =', sy-tabix,
+/ it-f1, it-f2, it-f3, it-f4,
+/ wa-f1, wa-f2, wa-f3, wa-f4.</p>
 </details>
 <h3 id="field-symbols-1">Field Symbols</h3>
 <details open>

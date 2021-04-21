@@ -301,6 +301,13 @@ loop at it [into wa] [from m] [to n] [where exp].
 endloop.
 ```
 
+For reading a single table, use *Read Table*  
+
+```
+read table it [into wa] [index i | with key keyexp [binary search] ] [comparing
+cmpexp] [transporting texp].
+```
+
 ## ABAP Code Snippets
 
 ### Hello World
@@ -391,6 +398,41 @@ DATA : gs_vbrk TYPE t_vbrk,
 * You can also define table type if needed
 TYPES tt_vbrk TYPE STANDARD TABLE OF t_vbrk.
 ```
+</details>
+
+<details open>
+<summary>Code</summary>
+
+report ztx1106.
+data: begin of it occurs 3,
+    f1(2) type n,
+    f2 type i,
+    f3(2) type c,
+    f4 type p,
+  end of it,
+  wa like it.
+
+it-f1 = '10'. it-f3 = 'AA'. it-f2 = it-f4 = 1. append it.
+it-f1 = '20'. it-f3 = 'BB'. it-f2 = it-f4 = 2. append it.
+it-f1 = '30'. it-f3 = 'CC'. it-f2 = it-f4 = 3. append it.
+
+write: / 'sy-subrc =', sy-subrc,
+  / 'sy-tabix =', sy-tabix,
+  / it-f1, it-f2, it-f3, it-f4.
+
+read table it into wa index 1.
+write: /,
+  / 'sy-subrc =', sy-subrc,
+  / 'sy-tabix =', sy-tabix,
+  / it-f1, it-f2, it-f3, it-f4,
+  / wa-f1, wa-f2, wa-f3, wa-f4.
+
+read table it index 4.
+write: /,
+  / 'sy-subrc =', sy-subrc,
+  / 'sy-tabix =', sy-tabix,
+  / it-f1, it-f2, it-f3, it-f4,
+  / wa-f1, wa-f2, wa-f3, wa-f4.
 </details>
 
 ### Field Symbols
