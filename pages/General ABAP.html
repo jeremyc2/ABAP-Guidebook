@@ -638,9 +638,28 @@ instead of sorting by ASCII code.</p>
 If an internal table does not have a header line, the internal table name itself represents the body. For example, if internal table it does not have a header line, you can use either it[] or it to represent the body; they are equivalent.</p>
 <h3 id="obtaining-information-about-an-internal-table">Obtaining Information about an Internal Table</h3>
 <h4 id="is-table-empty">Is table empty</h4>
+<p><em>if it[] is initial</em></p>
 <h4 id="get-number-of-rows">Get number of rows</h4>
+<ol>
+<li><em>describe table it [lines i] [occurs j].</em></li>
+<li><em>sy-tfill</em></li>
+</ol>
+<p>Other variables:</p>
+<ul>
+<li>sy-tleng - length of a row in bytes</li>
+<li>sy-toccu - current value of the <em>occurs</em> clause</li>
+</ul>
 <h3 id="copy-data-from-one-internal-table-to-another">Copy Data from One Internal Table to another</h3>
+<p><em>it2[] = it1[].</em></p>
+<p>append lines of it1 [from nf] [to nt] to it2.</p>
+<ul>
+<li>it1 and it2 are internal tables with or without header lines.</li>
+<li>nf and nt are numeric variables, literals, or constants.</li>
+</ul>
+<p><strong>Using append lines is three to four times faster than using append to add the rows one at a time.</strong></p>
+<p><em>insert lines of it1 [from nf] [to nt] into it2 [index nb].</em></p>
 <h3 id="compare-the-contents-of-two-internal-tables">Compare the Contents of Two Internal Tables</h3>
+<p><em>if it1[] = it2[].</em></p>
 <h3 id="the-editor-call-statement">The editor-call Statement</h3>
 <h2 id="abap-code-snippets">ABAP Code Snippets</h2>
 <h3 id="hello-world">Hello World</h3>

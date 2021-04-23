@@ -343,11 +343,33 @@ If an internal table does not have a header line, the internal table name itself
 
 #### Is table empty
 
+*if it[] is initial*  
+
 #### Get number of rows
+
+1. *describe table it [lines i] [occurs j].*
+2. *sy-tfill*
+
+Other variables:
+  * sy-tleng - length of a row in bytes
+  * sy-toccu - current value of the *occurs* clause
 
 ### Copy Data from One Internal Table to another
 
+*it2[] = it1[].*
+
+append lines of it1 [from nf] [to nt] to it2.
+
+* it1 and it2 are internal tables with or without header lines.
+* nf and nt are numeric variables, literals, or constants.
+
+**Using append lines is three to four times faster than using append to add the rows one at a time.**
+
+*insert lines of it1 [from nf] [to nt] into it2 [index nb].*
+
 ### Compare the Contents of Two Internal Tables
+
+*if it1[] = it2[].*
 
 ### The editor-call Statement
 
