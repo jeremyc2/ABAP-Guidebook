@@ -53,6 +53,15 @@
 <ul>
 <li><a href="#the-append-statement">The Append Statement</a></li>
 <li><a href="#reading-from-internal-table">Reading from Internal Table</a></li>
+<li><a href="#obtaining-information-about-an-internal-table">Obtaining Information about an Internal Table</a>
+<ul>
+<li><a href="#is-table-empty">Is table empty</a></li>
+<li><a href="#get-number-of-rows">Get number of rows</a></li>
+</ul>
+</li>
+<li><a href="#copy-data-from-one-internal-table-to-another">Copy Data from One Internal Table to another</a></li>
+<li><a href="#compare-the-contents-of-two-internal-tables">Compare the Contents of Two Internal Tables</a></li>
+<li><a href="#the-editor-call-statement">The editor-call Statement</a></li>
 </ul>
 </li>
 <li><a href="#abap-code-snippets">ABAP Code Snippets</a>
@@ -606,6 +615,33 @@ endloop.
 <pre><code><code><div>read table it [into wa] [index i | with key keyexp [binary search] ] [comparing
 cmpexp] [transporting texp].
 </div></code></code></pre>
+<p>Use <em>Sort <strong>it</strong> by text</em> to group similar characters together (i.e. accented characters near their unaccented counterparts)
+instead of sorting by ASCII code.</p>
+<p>Use the following constructs to test and modify the contents of internal tables:</p>
+<ul>
+<li>The table body operator</li>
+<li>describe table</li>
+<li>append lines</li>
+<li>insert lines</li>
+<li>editor-call</li>
+<li>insert</li>
+<li>modify</li>
+<li>free</li>
+<li>delete</li>
+<li>clear</li>
+<li>refresh</li>
+<li>append sorted by</li>
+<li>collect</li>
+</ul>
+<p>The body of an internal table is represented by the syntax it[] (nothing between the brackets), where it is the name of any internal table.</p>
+<p>You can use this syntax to perform efficient table operations that do not require the use of a header line.<br>
+If an internal table does not have a header line, the internal table name itself represents the body. For example, if internal table it does not have a header line, you can use either it[] or it to represent the body; they are equivalent.</p>
+<h3 id="obtaining-information-about-an-internal-table">Obtaining Information about an Internal Table</h3>
+<h4 id="is-table-empty">Is table empty</h4>
+<h4 id="get-number-of-rows">Get number of rows</h4>
+<h3 id="copy-data-from-one-internal-table-to-another">Copy Data from One Internal Table to another</h3>
+<h3 id="compare-the-contents-of-two-internal-tables">Compare the Contents of Two Internal Tables</h3>
+<h3 id="the-editor-call-statement">The editor-call Statement</h3>
 <h2 id="abap-code-snippets">ABAP Code Snippets</h2>
 <h3 id="hello-world">Hello World</h3>
 <details open>

@@ -21,6 +21,12 @@
   - [Internal Tables](#internal-tables)
     - [The Append Statement](#the-append-statement)
     - [Reading from Internal Table](#reading-from-internal-table)
+    - [Obtaining Information about an Internal Table](#obtaining-information-about-an-internal-table)
+      - [Is table empty](#is-table-empty)
+      - [Get number of rows](#get-number-of-rows)
+    - [Copy Data from One Internal Table to another](#copy-data-from-one-internal-table-to-another)
+    - [Compare the Contents of Two Internal Tables](#compare-the-contents-of-two-internal-tables)
+    - [The editor-call Statement](#the-editor-call-statement)
   - [ABAP Code Snippets](#abap-code-snippets)
     - [Hello World](#hello-world)
     - [Get Last Day of Previous Month](#get-last-day-of-previous-month)
@@ -308,6 +314,44 @@ For reading a single table, use *Read Table*
 read table it [into wa] [index i | with key keyexp [binary search] ] [comparing
 cmpexp] [transporting texp].
 ```
+
+Use *Sort **it** by text* to group similar characters together (i.e. accented characters near their unaccented counterparts)
+instead of sorting by ASCII code.
+
+Use the following constructs to test and modify the contents of internal tables:
+   * The table body operator
+   * describe table
+   * append lines
+   * insert lines
+   * editor-call
+   * insert
+   * modify
+   * free
+   * delete
+   * clear
+   * refresh
+   * append sorted by
+   * collect
+
+
+The body of an internal table is represented by the syntax it[] (nothing between the brackets), where it is the name of any internal table.  
+  
+You can use this syntax to perform efficient table operations that do not require the use of a header line.  
+If an internal table does not have a header line, the internal table name itself represents the body. For example, if internal table it does not have a header line, you can use either it[] or it to represent the body; they are equivalent.  
+
+### Obtaining Information about an Internal Table
+
+#### Is table empty
+
+#### Get number of rows
+
+### Copy Data from One Internal Table to another
+
+### Compare the Contents of Two Internal Tables
+
+### The editor-call Statement
+
+
 
 ## ABAP Code Snippets
 
