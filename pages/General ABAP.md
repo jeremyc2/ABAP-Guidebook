@@ -373,7 +373,9 @@ append lines of it1 [from nf] [to nt] to it2.
 
 ### The editor-call Statement
 
+The editor-call statement displays the contents of an internal table to the user in an editor similar to the ABAP/4 source code editor. It is useful for debugging and as a simple interface for allowing the user to enter and modify data.
 
+*editor-call for it [title t] [display mode]*
 
 ## ABAP Code Snippets
 
