@@ -27,6 +27,9 @@
     - [Copy Data from One Internal Table to another](#copy-data-from-one-internal-table-to-another)
     - [Compare the Contents of Two Internal Tables](#compare-the-contents-of-two-internal-tables)
     - [The editor-call Statement](#the-editor-call-statement)
+  - [Write Statement](#write-statement)
+    - [The write statement](#the-write-statement)
+    - [Writing data](#writing-data)
   - [ABAP Code Snippets](#abap-code-snippets)
     - [Hello World](#hello-world)
     - [Get Last Day of Previous Month](#get-last-day-of-previous-month)
@@ -376,6 +379,52 @@ append lines of it1 [from nf] [to nt] to it2.
 The editor-call statement displays the contents of an internal table to the user in an editor similar to the ABAP/4 source code editor. It is useful for debugging and as a simple interface for allowing the user to enter and modify data.
 
 *editor-call for it [title t] [display mode]*
+
+## Write Statement
+
+### The write statement
+
+write [at] [/p(l)] v1[+o(sl)]  
+(1) under v2 | no-gap  
+(2) using edit mask m | using no edit mask  
+(3) mm/dd/yy | dd/mm/yy  
+(4) mm/dd/yyyy | dd/mm/yyyy  
+(5) mmddyy | ddmmyy | yymmdd  
+(6) no-zero  
+(7) no-sign  
+(8) decimals n  
+(9) round n  
+(10) currency c | unit u  
+(11) left-justified | centered | right-justified  
+
+where:
+* v1 is a literal, variable, or field string name.  
+* p, l, and n are numeric literals or variables.  
+* p is the position specification. It identifies the output column in which the output field should begin.  
+* l is the length specification. It identifies the length of the output field in which the value should be written.  
+* o is a subfield offset specification that can contain numeric literals only.  
+* sl is a subfield length specification that can contain numeric literals only.  
+* m is an edit mask.  
+* c is a currency key (from table tcurc).  
+* u is a unit of measure (from table t006).  
+* n is a numeric literal or variable.  
+
+The following points apply:  
+* If either p or l is a variable, the word at is required.  
+* A slash (/) begins a new line before writing the variable value.  
+
+### Writing data
+
+| Data | Justification | Format                      | Sign     | Dflt Output Type Length  |
+| ---- | ------------- | --------------------------- | -------- | ------------------------ |
+| i    | Right         | Zeros suppressed            | Trailing | 11                       |
+| p    | Right         | Zeros suppressed            | Trailing | 2*fldlen or (2*fldlen)+1 |
+| f    | None          | Scientific notation         | Leading  | 22                       |
+| n    | Right         | Leading zeros shown         | None     | fldlen                   |
+| c    | Left          | Leading blanks suppressed   |          | fldlen                   |
+| d    | Left          | Determined by user defaults |          | 8                        |
+| t    | Left          | HH:MM:SS                    |          | 6                        |
+| x    | Left          |                             |          | 2*fldlen                 |
 
 ## ABAP Code Snippets
 

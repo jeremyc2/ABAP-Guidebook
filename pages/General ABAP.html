@@ -64,6 +64,12 @@
 <li><a href="#the-editor-call-statement">The editor-call Statement</a></li>
 </ul>
 </li>
+<li><a href="#write-statement">Write Statement</a>
+<ul>
+<li><a href="#the-write-statement">The write statement</a></li>
+<li><a href="#writing-data">Writing data</a></li>
+</ul>
+</li>
 <li><a href="#abap-code-snippets">ABAP Code Snippets</a>
 <ul>
 <li><a href="#hello-world">Hello World</a></li>
@@ -663,6 +669,108 @@ If an internal table does not have a header line, the internal table name itself
 <h3 id="the-editor-call-statement">The editor-call Statement</h3>
 <p>The editor-call statement displays the contents of an internal table to the user in an editor similar to the ABAP/4 source code editor. It is useful for debugging and as a simple interface for allowing the user to enter and modify data.</p>
 <p><em>editor-call for it [title t] [display mode]</em></p>
+<h2 id="write-statement">Write Statement</h2>
+<h3 id="the-write-statement">The write statement</h3>
+<p>write [at] [/p(l)] v1[+o(sl)]<br>
+(1) under v2 | no-gap<br>
+(2) using edit mask m | using no edit mask<br>
+(3) mm/dd/yy | dd/mm/yy<br>
+(4) mm/dd/yyyy | dd/mm/yyyy<br>
+(5) mmddyy | ddmmyy | yymmdd<br>
+(6) no-zero<br>
+(7) no-sign<br>
+(8) decimals n<br>
+(9) round n<br>
+(10) currency c | unit u<br>
+(11) left-justified | centered | right-justified</p>
+<p>where:</p>
+<ul>
+<li>v1 is a literal, variable, or field string name.</li>
+<li>p, l, and n are numeric literals or variables.</li>
+<li>p is the position specification. It identifies the output column in which the output field should begin.</li>
+<li>l is the length specification. It identifies the length of the output field in which the value should be written.</li>
+<li>o is a subfield offset specification that can contain numeric literals only.</li>
+<li>sl is a subfield length specification that can contain numeric literals only.</li>
+<li>m is an edit mask.</li>
+<li>c is a currency key (from table tcurc).</li>
+<li>u is a unit of measure (from table t006).</li>
+<li>n is a numeric literal or variable.</li>
+</ul>
+<p>The following points apply:</p>
+<ul>
+<li>If either p or l is a variable, the word at is required.</li>
+<li>A slash (/) begins a new line before writing the variable value.</li>
+</ul>
+<h3 id="writing-data">Writing data</h3>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Justification</th>
+<th>Format</th>
+<th>Sign</th>
+<th>Dflt Output Type Length</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i</td>
+<td>Right</td>
+<td>Zeros suppressed</td>
+<td>Trailing</td>
+<td>11</td>
+</tr>
+<tr>
+<td>p</td>
+<td>Right</td>
+<td>Zeros suppressed</td>
+<td>Trailing</td>
+<td>2<em>fldlen or (2</em>fldlen)+1</td>
+</tr>
+<tr>
+<td>f</td>
+<td>None</td>
+<td>Scientific notation</td>
+<td>Leading</td>
+<td>22</td>
+</tr>
+<tr>
+<td>n</td>
+<td>Right</td>
+<td>Leading zeros shown</td>
+<td>None</td>
+<td>fldlen</td>
+</tr>
+<tr>
+<td>c</td>
+<td>Left</td>
+<td>Leading blanks suppressed</td>
+<td></td>
+<td>fldlen</td>
+</tr>
+<tr>
+<td>d</td>
+<td>Left</td>
+<td>Determined by user defaults</td>
+<td></td>
+<td>8</td>
+</tr>
+<tr>
+<td>t</td>
+<td>Left</td>
+<td>HH:MM:SS</td>
+<td></td>
+<td>6</td>
+</tr>
+<tr>
+<td>x</td>
+<td>Left</td>
+<td></td>
+<td></td>
+<td>2*fldlen</td>
+</tr>
+</tbody>
+</table>
 <h2 id="abap-code-snippets">ABAP Code Snippets</h2>
 <h3 id="hello-world">Hello World</h3>
 <details open>
