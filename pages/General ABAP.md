@@ -31,6 +31,7 @@
     - [The write statement](#the-write-statement)
     - [Writing data](#writing-data)
     - [Using Edit Masks](#using-edit-masks)
+    - [As Symbol, as Icon, as Line](#as-symbol-as-icon-as-line)
   - [ABAP Code Snippets](#abap-code-snippets)
     - [Hello World](#hello-world)
     - [Get Last Day of Previous Month](#get-last-day-of-previous-month)
@@ -437,7 +438,13 @@ Edit masks enable you to:
 
 Use underscore for placeholders  
 
+### As Symbol, as Icon, as Line
 
+| Type      | Description                       |
+| --------- | --------------------------------- |
+| as symbol | Displays a black-and-white symbol |
+| as icon   | Displays a color icon             |
+| as line   | Displays a line-draw character    |
 
 ## ABAP Code Snippets
 
