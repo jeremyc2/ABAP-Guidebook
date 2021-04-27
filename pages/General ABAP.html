@@ -68,6 +68,7 @@
 <ul>
 <li><a href="#the-write-statement">The write statement</a></li>
 <li><a href="#writing-data">Writing data</a></li>
+<li><a href="#using-edit-masks">Using Edit Masks</a></li>
 </ul>
 </li>
 <li><a href="#abap-code-snippets">ABAP Code Snippets</a>
@@ -613,7 +614,7 @@ field-symbol name must begin and end with angle brackets.</p>
 <li>Loop at</li>
 <li>Read at</li>
 </ol>
-<pre><code><code><div>loop at it [into wa] [from m] [to n] [where exp].
+<pre><code><code><div>*oop at it [into wa] [from m] [to n] [where exp].
 ---
 endloop.
 </div></code></code></pre>
@@ -771,6 +772,14 @@ If an internal table does not have a header line, the internal table name itself
 </tr>
 </tbody>
 </table>
+<h3 id="using-edit-masks">Using Edit Masks</h3>
+<p>Edit masks enable you to:</p>
+<ul>
+<li>Insert characters into the output</li>
+<li>Move the sign to the beginning of a numeric field</li>
+<li>Artificially insert or move a decimal point</li>
+<li>Display a floating-point number without using scientific notation</li>
+</ul>
 <h2 id="abap-code-snippets">ABAP Code Snippets</h2>
 <h3 id="hello-world">Hello World</h3>
 <details open>

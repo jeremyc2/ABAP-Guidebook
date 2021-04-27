@@ -30,6 +30,7 @@
   - [Write Statement](#write-statement)
     - [The write statement](#the-write-statement)
     - [Writing data](#writing-data)
+    - [Using Edit Masks](#using-edit-masks)
   - [ABAP Code Snippets](#abap-code-snippets)
     - [Hello World](#hello-world)
     - [Get Last Day of Previous Month](#get-last-day-of-previous-month)
@@ -306,7 +307,7 @@ field-symbol name must begin and end with angle brackets.
 2. Read at
 
 ```
-loop at it [into wa] [from m] [to n] [where exp].
+*oop at it [into wa] [from m] [to n] [where exp].
 ---
 endloop.
 ```
@@ -425,6 +426,16 @@ The following points apply:
 | d    | Left          | Determined by user defaults |          | 8                        |
 | t    | Left          | HH:MM:SS                    |          | 6                        |
 | x    | Left          |                             |          | 2*fldlen                 |
+
+### Using Edit Masks
+
+Edit masks enable you to:
+* Insert characters into the output  
+* Move the sign to the beginning of a numeric field  
+* Artificially insert or move a decimal point  
+* Display a floating-point number without using scientific notation  
+
+
 
 ## ABAP Code Snippets
 
