@@ -435,6 +435,8 @@ Edit masks enable you to:
 * Artificially insert or move a decimal point  
 * Display a floating-point number without using scientific notation  
 
+Use underscore for placeholders  
+
 
 
 ## ABAP Code Snippets
