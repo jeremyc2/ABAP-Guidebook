@@ -13,6 +13,7 @@
     - [Assignment Statements](#assignment-statements)
     - [String Special Comparison Operators](#string-special-comparison-operators)
     - [Loops](#loops)
+    - [Events](#events)
   - [T-Codes](#t-codes)
     - [Standard T-Codes](#standard-t-codes)
     - [Special T-Codes](#special-t-codes)
@@ -236,6 +237,41 @@ field-symbol name must begin and end with angle brackets.
 | Exit      | Leaves the current loop                      |
 | Continue  | Unconditional jump to the end of the loop    |
 | Check exp | Jumps to the end of the loop if exp is false |
+
+### Events
+
+| Category | Events                                                                                             |
+| -------- | -------------------------------------------------------------------------------------------------- |
+| Driver   | initialization </br> at selection-screen </br> start-of-selection </br> get </br> end-of-selection |
+| User     | at line-selection </br> at pfn </br> at user-command                                               |
+| Program  | top-of-page </br> end-of-page                                                                      |
+
+| Location                                    | Event      | Action                                                                                          |
+| ------------------------------------------- | ---------- | ----------------------------------------------------------------------------------------------- |
+| before start-of-selection                   | exit/check | exit event                                                                                      |
+|                                             | stop       | go to end-of-selection                                                                          |
+| in start-of-selection and subsequent events | exit       | terminates report and shows output list </br> (except in top-of-page where it leaves the event) |
+|                                             | check      | exits event                                                                                     |
+|                                             | stop       | go to end-of-selection event                                                                    |
+| initialization                              | exit/check | exits event                                                                                     |
+|                                             | stop       | don't do this                                                                                   |
+| at selection-screen output                  | exit/check | exits event                                                                                     |
+|                                             | stop       | don't do this                                                                                   |
+| at selection-screen on radiobutton group g1 | exit/check | exits event                                                                                     |
+|                                             | stop       | goes to end-of-selection                                                                        |
+| at selection-screen                         | exit/check | exits event                                                                                     |
+|                                             | stop       | goes to end-of-selection                                                                        |
+| start-of-selection                          | exit       | exits report                                                                                    |
+|                                             | check      | exits event                                                                                     |
+|                                             | stop       | goes to end-of-selection                                                                        |
+| end-of-selection                            | exit       | exits report                                                                                    |
+|                                             | check      | exits report                                                                                    |
+|                                             | stop       | exits report                                                                                    |
+| top-of-page                                 | exit/check | exits event and returns to write statement                                                      |
+|                                             | stop       | go to end-of-selection - do not write after it                                                  |
+| end-of-page                                 | exit       | exits report                                                                                    |
+|                                             | check      | exits event and returns to write statement                                                      |
+|                                             | stop       | go to end-of-selection - don't write after it                                                   |
 
 ## T-Codes
 

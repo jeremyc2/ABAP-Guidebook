@@ -39,6 +39,7 @@
 <li><a href="#assignment-statements">Assignment Statements</a></li>
 <li><a href="#string-special-comparison-operators">String Special Comparison Operators</a></li>
 <li><a href="#loops">Loops</a></li>
+<li><a href="#events">Events</a></li>
 </ul>
 </li>
 <li><a href="#t-codes">T-Codes</a>
@@ -432,6 +433,160 @@ field-symbol name must begin and end with angle brackets.</p>
 <tr>
 <td>Check exp</td>
 <td>Jumps to the end of the loop if exp is false</td>
+</tr>
+</tbody>
+</table>
+<h3 id="events">Events</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Events</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Driver</td>
+<td>initialization </br> at selection-screen </br> start-of-selection </br> get </br> end-of-selection</td>
+</tr>
+<tr>
+<td>User</td>
+<td>at line-selection </br> at pfn </br> at user-command</td>
+</tr>
+<tr>
+<td>Program</td>
+<td>top-of-page </br> end-of-page</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Location</th>
+<th>Event</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>before start-of-selection</td>
+<td>exit/check</td>
+<td>exit event</td>
+</tr>
+<tr>
+<td></td>
+<td>stop</td>
+<td>go to end-of-selection</td>
+</tr>
+<tr>
+<td>in start-of-selection and subsequent events</td>
+<td>exit</td>
+<td>terminates report and shows output list </br> (except in top-of-page where it leaves the event)</td>
+</tr>
+<tr>
+<td></td>
+<td>check</td>
+<td>exits event</td>
+</tr>
+<tr>
+<td></td>
+<td>stop</td>
+<td>go to end-of-selection event</td>
+</tr>
+<tr>
+<td>initialization</td>
+<td>exit/check</td>
+<td>exits event</td>
+</tr>
+<tr>
+<td></td>
+<td>stop</td>
+<td>don't do this</td>
+</tr>
+<tr>
+<td>at selection-screen output</td>
+<td>exit/check</td>
+<td>exits event</td>
+</tr>
+<tr>
+<td></td>
+<td>stop</td>
+<td>don't do this</td>
+</tr>
+<tr>
+<td>at selection-screen on radiobutton group g1</td>
+<td>exit/check</td>
+<td>exits event</td>
+</tr>
+<tr>
+<td></td>
+<td>stop</td>
+<td>goes to end-of-selection</td>
+</tr>
+<tr>
+<td>at selection-screen</td>
+<td>exit/check</td>
+<td>exits event</td>
+</tr>
+<tr>
+<td></td>
+<td>stop</td>
+<td>goes to end-of-selection</td>
+</tr>
+<tr>
+<td>start-of-selection</td>
+<td>exit</td>
+<td>exits report</td>
+</tr>
+<tr>
+<td></td>
+<td>check</td>
+<td>exits event</td>
+</tr>
+<tr>
+<td></td>
+<td>stop</td>
+<td>goes to end-of-selection</td>
+</tr>
+<tr>
+<td>end-of-selection</td>
+<td>exit</td>
+<td>exits report</td>
+</tr>
+<tr>
+<td></td>
+<td>check</td>
+<td>exits report</td>
+</tr>
+<tr>
+<td></td>
+<td>stop</td>
+<td>exits report</td>
+</tr>
+<tr>
+<td>top-of-page</td>
+<td>exit/check</td>
+<td>exits event and returns to write statement</td>
+</tr>
+<tr>
+<td></td>
+<td>stop</td>
+<td>go to end-of-selection - do not write after it</td>
+</tr>
+<tr>
+<td>end-of-page</td>
+<td>exit</td>
+<td>exits report</td>
+</tr>
+<tr>
+<td></td>
+<td>check</td>
+<td>exits event and returns to write statement</td>
+</tr>
+<tr>
+<td></td>
+<td>stop</td>
+<td>go to end-of-selection - don't write after it</td>
 </tr>
 </tbody>
 </table>
