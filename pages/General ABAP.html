@@ -40,6 +40,12 @@
 <li><a href="#string-special-comparison-operators">String Special Comparison Operators</a></li>
 <li><a href="#loops">Loops</a></li>
 <li><a href="#events">Events</a></li>
+<li><a href="#subroutines">Subroutines</a>
+<ul>
+<li><a href="#calling-a-subroutine">Calling a subroutine</a></li>
+<li><a href="#subroutine-parameters">Subroutine Parameters</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#t-codes">T-Codes</a>
@@ -85,6 +91,7 @@
 <li><a href="#create-internal-table-using-values-construct">Create Internal Table Using Values Construct</a></li>
 <li><a href="#case-statement">Case Statement</a></li>
 <li><a href="#loops-1">Loops</a></li>
+<li><a href="#subroutine">Subroutine</a></li>
 </ul>
 </li>
 <li><a href="#cool-things">Cool Things</a></li>
@@ -587,6 +594,66 @@ field-symbol name must begin and end with angle brackets.</p>
 <td></td>
 <td>stop</td>
 <td>go to end-of-selection - don't write after it</td>
+</tr>
+</tbody>
+</table>
+<h3 id="subroutines">Subroutines</h3>
+<p>form s [tables t1 t2 ...]<br>
+       [using u1 value(u2) ...]<br>
+       [changing c1 value(c2) ...].</p>
+<p>endform.</p>
+<ul>
+<li>tables allows internal tables to be passed as parameters.</li>
+<li>The value addition cannot be used after tables.</li>
+<li>The value addition can be applied to any variables passed via using or changing.</li>
+<li>All additions are optional.</li>
+<li>When they are coded, additions must appear in the order shown here. If coded, tables must come first, then using, and then changing.</li>
+<li>Each addition can only be specified once. For example, the tables addition can only appear once. However, multiple tables can appear after it.</li>
+<li>Do not use commas to separate parameters.</li>
+<li>tables only allows internal tables to be passed-not database tables.</li>
+<li>A subroutine can call another subroutine.</li>
+<li>Recursion is supported. A subroutine can call itself or a subroutine that calls it.</li>
+<li>Subroutine definitions cannot be nested. (You cannot define a subroutine within another subroutine.)</li>
+</ul>
+<h4 id="calling-a-subroutine">Calling a subroutine</h4>
+<p>perform a) s<br>
+        b) n of s1 s2 s3 ...<br>
+                      [tables t1 t2 ...]<br>
+                      [using u1 u2 ...]<br>
+                      [changing c1 c2 ...].</p>
+<p>s, s1, s2, s3, are subroutine names.</p>
+<ul>
+<li>n is a numeric variable.</li>
+<li>a) and b) are mutually exclusive.</li>
+<li>tables, using, and changing can appear with either a) or b).</li>
+<li>The addition value() cannot be used with perform.</li>
+</ul>
+<p>Using syntax b) you can specify that one of a list of subroutines be performed. The nth subroutine in the list of subroutine names is
+performed. For example, if n is 2, the second subroutine in the list will be performed.</p>
+<h4 id="subroutine-parameters">Subroutine Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Addition</th>
+<th>Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>using v1</td>
+<td>Pass by reference</td>
+</tr>
+<tr>
+<td>hanging v1</td>
+<td>Pass by reference</td>
+</tr>
+<tr>
+<td>dusing value(v1)</td>
+<td>Pass by value</td>
+</tr>
+<tr>
+<td>changing value(v1)</td>
+<td>Pass by value and result</td>
 </tr>
 </tbody>
 </table>
@@ -1150,6 +1217,22 @@ while exp [ vary f1 from s-c1 next s-c2 [ vary f2 from s2-c1 next s2-c2 ... ]
   [ exit. ]
   ---
   endwhile.
+</div></code></code></pre>
+</details>
+<h3 id="subroutine">Subroutine</h3>
+<details open>
+<summary>Code</summary>
+<pre><code><code><div>report ztx1706.
+
+write: / 'Before call 1'.
+perform sub1.
+write: / 'Before call 2'.
+perform sub1.
+write: / 'After calls'.
+
+form sub1.
+write: / 'Inside sub1'.
+endform.
 </div></code></code></pre>
 </details>
 <h2 id="cool-things">Cool Things</h2>

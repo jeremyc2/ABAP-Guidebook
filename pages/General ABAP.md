@@ -14,6 +14,9 @@
     - [String Special Comparison Operators](#string-special-comparison-operators)
     - [Loops](#loops)
     - [Events](#events)
+    - [Subroutines](#subroutines)
+      - [Calling a subroutine](#calling-a-subroutine)
+      - [Subroutine Parameters](#subroutine-parameters)
   - [T-Codes](#t-codes)
     - [Standard T-Codes](#standard-t-codes)
     - [Special T-Codes](#special-t-codes)
@@ -44,6 +47,7 @@
     - [Create Internal Table Using Values Construct](#create-internal-table-using-values-construct)
     - [Case Statement](#case-statement)
     - [Loops](#loops-1)
+    - [Subroutine](#subroutine)
   - [Cool Things](#cool-things)
   - [TODO List](#todo-list)
   - [VS Code Markdown Help](#vs-code-markdown-help)
@@ -272,6 +276,52 @@ field-symbol name must begin and end with angle brackets.
 | end-of-page                                 | exit       | exits report                                                                                    |
 |                                             | check      | exits event and returns to write statement                                                      |
 |                                             | stop       | go to end-of-selection - don't write after it                                                   |
+
+### Subroutines
+
+form s [tables t1 t2 ...]  
+       [using u1 value(u2) ...]  
+       [changing c1 value(c2) ...].  
+  
+endform.  
+
+* tables allows internal tables to be passed as parameters.
+* The value addition cannot be used after tables.
+* The value addition can be applied to any variables passed via using or changing.
+* All additions are optional.
+* When they are coded, additions must appear in the order shown here. If coded, tables must come first, then using, and then changing.
+* Each addition can only be specified once. For example, the tables addition can only appear once. However, multiple tables can appear after it.
+* Do not use commas to separate parameters.
+* tables only allows internal tables to be passed-not database tables.
+* A subroutine can call another subroutine.
+* Recursion is supported. A subroutine can call itself or a subroutine that calls it.
+* Subroutine definitions cannot be nested. (You cannot define a subroutine within another subroutine.)
+
+#### Calling a subroutine
+
+perform a) s  
+        b) n of s1 s2 s3 ...  
+                      [tables t1 t2 ...]  
+                      [using u1 u2 ...]  
+                      [changing c1 c2 ...].  
+
+s, s1, s2, s3, are subroutine names.
+* n is a numeric variable.
+* a) and b) are mutually exclusive.
+* tables, using, and changing can appear with either a) or b).
+* The addition value() cannot be used with perform.
+
+Using syntax b) you can specify that one of a list of subroutines be performed. The nth subroutine in the list of subroutine names is
+performed. For example, if n is 2, the second subroutine in the list will be performed.
+
+#### Subroutine Parameters
+
+| Addition           | Method                   |
+| ------------------ | ------------------------ |
+| using v1           | Pass by reference        |
+| hanging v1         | Pass by reference        |
+| dusing value(v1)   | Pass by value            |
+| changing value(v1) | Pass by value and result |
 
 ## T-Codes
 
@@ -705,6 +755,27 @@ while exp [ vary f1 from s-c1 next s-c2 [ vary f2 from s2-c1 next s2-c2 ... ]
   endwhile.
 ```
 </details>
+
+### Subroutine
+
+<details open>
+<summary>Code</summary>
+
+```
+report ztx1706.
+
+write: / 'Before call 1'.
+perform sub1.
+write: / 'Before call 2'.
+perform sub1.
+write: / 'After calls'.
+
+form sub1.
+write: / 'Inside sub1'.
+endform.
+```
+</details>
+
 
 ## Cool Things
 
