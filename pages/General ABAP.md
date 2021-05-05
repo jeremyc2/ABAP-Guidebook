@@ -19,6 +19,8 @@
       - [Subroutine Parameters](#subroutine-parameters)
     - [Function modules](#function-modules)
       - [Passing Parameters](#passing-parameters)
+    - [Selection screens](#selection-screens)
+      - [The Initialization Event](#the-initialization-event)
   - [T-Codes](#t-codes)
     - [Standard T-Codes](#standard-t-codes)
     - [Special T-Codes](#special-t-codes)
@@ -372,6 +374,24 @@ The following points apply:
 * All additions are optional.
 * call function is a single statement. Do not place periods or commas after parameters or exception names.
 * The function module name must be coded in uppercase. If it is coded in lowercase, the function will not be found and a short dump will result.
+
+### Selection screens
+
+It is good practice to define sequential processing blocks in the order by which they will most likely be triggered during
+selection screen execution.  
+  
+Most important events (in most likely order):  
+* The initialization event  
+* The at selection-screen event  
+* The at user-command event  
+
+#### The Initialization Event
+
+The at selection-screen event is processed after user input on the active selection screen. This can occur when the user presses a function key or
+clicks a pushbutton, as well as a host of other elements that can be interacted on by the user. In addition to data validation checks, warning messages,
+GUI status change, or even pop-up windows can be called using the at selection-screen event.
+
+
 
 ## T-Codes
 
