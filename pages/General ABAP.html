@@ -46,6 +46,11 @@
 <li><a href="#subroutine-parameters">Subroutine Parameters</a></li>
 </ul>
 </li>
+<li><a href="#function-modules">Function modules</a>
+<ul>
+<li><a href="#passing-parameters">Passing Parameters</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#t-codes">T-Codes</a>
@@ -158,6 +163,18 @@ Remember <a href="https://en.wikipedia.org/wiki/ABAP#Chained_statements">Chained
 <li>Object classes &amp; Interfaces: Object Oriented Programming</li>
 <li>Type pools: Collections of data types and constants</li>
 </ol>
+<blockquote>
+<p>Q How do I decide whether to use an include, an internal subroutine, an external subroutine, or a function module to implement my code?</p>
+</blockquote>
+<blockquote>
+<p>A If the code will not be used by any other programs, then use an internal subroutine. If the code might be useful to other programs, use a
+function module. You should not create external subroutines. They were only covered in the previous chapter so that you would know how to
+use them because there are still many in use in the R/3 system. It's also easier to understand function modules if you know how external
+subroutines work. Instead of external subroutines, use function modules. includes should be used to simplify your program structure and
+group similar components together. They should not be used as containers for reusable code that is included into multiple programs. For
+example, you might put all of your data declarations into one include, your events into another, your subroutines into a third, and your
+calls to function modules into a fourth.</p>
+</blockquote>
 <p>Data Dictionary:</p>
 <ol>
 <li>Tables: Relational.
@@ -657,6 +674,43 @@ performed. For example, if n is 2, the second subroutine in the list will be per
 </tr>
 </tbody>
 </table>
+<h3 id="function-modules">Function modules</h3>
+<p>Similar to Subroutine:</p>
+<ul>
+<li>Both exist within an external program.</li>
+<li>Both enable parameters to be passed and returned.</li>
+<li>Parameters can be passed by value, by value and result, or by reference.</li>
+</ul>
+<p>The major differences between function modules and external subroutines are the following:</p>
+<ul>
+<li>Function modules have a special screen used for defining parameters-parameters are not defined via ABAP/4 statements.</li>
+<li>tables work areas are not shared between the function module and the calling program.</li>
+<li>Different syntax is used to call a function module than to call a subroutine.</li>
+<li>Leaving a function module is accomplished via the <em>raise</em> statement instead of <em>check</em>, <em>exit</em>, or <em>stop</em>.</li>
+</ul>
+<h4 id="passing-parameters">Passing Parameters</h4>
+<p>To pass parameters to a function module, you must define a <em>function module interface</em>, also called an <em>interface</em>.</p>
+<p>call function 'F'<br>
+          [exporting p1 = v1 ... ]<br>
+          [importing p2 = v2 ... ]<br>
+          [changing p3 = v3 ... ]<br>
+          [tables p4 = it ... ]<br>
+          [exceptions x1 = n [others = n]].</p>
+<p>where:</p>
+<ul>
+<li>F is the function module name.</li>
+<li>p1 through p4 are parameter names defined in the function module interface.</li>
+<li>v1 through v3 are variable or field string names defined within the calling program.</li>
+<li>it is an internal table defined within the calling program.</li>
+<li>n is any integer literal; n cannot be a variable.</li>
+<li>x1 is an exception name raised within the function module.</li>
+</ul>
+<p>The following points apply:</p>
+<ul>
+<li>All additions are optional.</li>
+<li>call function is a single statement. Do not place periods or commas after parameters or exception names.</li>
+<li>The function module name must be coded in uppercase. If it is coded in lowercase, the function will not be found and a short dump will result.</li>
+</ul>
 <h2 id="t-codes">T-Codes</h2>
 <p><strong>Table TSTC:</strong> All T-Codes can be viewed</p>
 <p><a href="https://www.system-overload.org/sap/transaction-codes.html">T-Codes By Category</a></p>

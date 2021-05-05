@@ -17,6 +17,8 @@
     - [Subroutines](#subroutines)
       - [Calling a subroutine](#calling-a-subroutine)
       - [Subroutine Parameters](#subroutine-parameters)
+    - [Function modules](#function-modules)
+      - [Passing Parameters](#passing-parameters)
   - [T-Codes](#t-codes)
     - [Standard T-Codes](#standard-t-codes)
     - [Special T-Codes](#special-t-codes)
@@ -102,6 +104,16 @@ Non-executable program types:
   3. Function groups: Contains function modules (enclosed by FUNCTION/ENDFUNCTION and invoked with CALL FUNCTION)
   4. Object classes & Interfaces: Object Oriented Programming
   5. Type pools: Collections of data types and constants
+
+> Q How do I decide whether to use an include, an internal subroutine, an external subroutine, or a function module to implement my code?  
+  
+> A If the code will not be used by any other programs, then use an internal subroutine. If the code might be useful to other programs, use a
+function module. You should not create external subroutines. They were only covered in the previous chapter so that you would know how to
+use them because there are still many in use in the R/3 system. It's also easier to understand function modules if you know how external
+subroutines work. Instead of external subroutines, use function modules. includes should be used to simplify your program structure and
+group similar components together. They should not be used as containers for reusable code that is included into multiple programs. For
+example, you might put all of your data declarations into one include, your events into another, your subroutines into a third, and your
+calls to function modules into a fourth.  
 
 Data Dictionary:
   1. Tables: Relational. 
@@ -191,7 +203,7 @@ Built-in Data Types:
 > The values of sy-datum and sy-uzeit are set at the beginning of program execution
 and do not change until the program ends. If you need access to the most current date and
 time during execution of a long-running pro-gram, use the statement get time. It updates
-the values of sy-datum and sy-uzeit to reflect the current date and time.
+the values of sy-datum and sy-uzeit to reflect the current date and time.  
 
 Message types:
   * A: Abend
@@ -322,6 +334,44 @@ performed. For example, if n is 2, the second subroutine in the list will be per
 | hanging v1         | Pass by reference        |
 | dusing value(v1)   | Pass by value            |
 | changing value(v1) | Pass by value and result |
+
+### Function modules
+
+Similar to Subroutine:  
+* Both exist within an external program.  
+* Both enable parameters to be passed and returned.  
+* Parameters can be passed by value, by value and result, or by reference.  
+
+
+The major differences between function modules and external subroutines are the following:  
+* Function modules have a special screen used for defining parameters-parameters are not defined via ABAP/4 statements.  
+* tables work areas are not shared between the function module and the calling program.  
+* Different syntax is used to call a function module than to call a subroutine.  
+* Leaving a function module is accomplished via the *raise* statement instead of *check*, *exit*, or *stop*.  
+
+#### Passing Parameters
+
+To pass parameters to a function module, you must define a *function module interface*, also called an *interface*.  
+  
+call function 'F'  
+          [exporting p1 = v1 ... ]  
+          [importing p2 = v2 ... ]  
+          [changing p3 = v3 ... ]  
+          [tables p4 = it ... ]  
+          [exceptions x1 = n [others = n]].  
+  
+where:
+* F is the function module name.
+* p1 through p4 are parameter names defined in the function module interface.
+* v1 through v3 are variable or field string names defined within the calling program.
+* it is an internal table defined within the calling program.
+* n is any integer literal; n cannot be a variable.
+* x1 is an exception name raised within the function module.  
+  
+The following points apply:
+* All additions are optional.
+* call function is a single statement. Do not place periods or commas after parameters or exception names.
+* The function module name must be coded in uppercase. If it is coded in lowercase, the function will not be found and a short dump will result.
 
 ## T-Codes
 
