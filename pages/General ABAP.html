@@ -363,6 +363,9 @@ the values of sy-datum and sy-uzeit to reflect the current date and time.</p>
 <li>W: Warning</li>
 <li>X: Exit (Terminates and logs info to T-Code ST22)</li>
 </ul>
+<p>Using message classes:<br>
+<em>Don't forget to specify the correct message ID at the beginning of the report</em><br>
+<em>Use system message classes before making your own</em></p>
 <h3 id="field-symbols">Field Symbols</h3>
 <p>A <strong>field-symbol</strong> is a pointer you can dynamically assign
 to a field. After assignment, you can use the field-symbol
@@ -1305,6 +1308,121 @@ write: / 'After calls'.
 form sub1.
 write: / 'Inside sub1'.
 endform.
+</div></code></code></pre>
+</details>
+<details open>
+<summary>Code</summary>
+<pre><code><code><div>report YJACOBJX message-id Y6.
+* Database Table Definitions
+tables: mara.
+selection-screen skip 1.
+    selection-screen begin of block block0 with frame title text-000.
+    selection-screen skip 1.
+selection-screen begin of line.
+selection-screen pushbutton 10(20) text-003 user-command engl.
+selection-screen pushbutton 50(20) text-004 user-command germ.
+selection-screen end of line.
+    selection-screen end of block block0.
+* Selection parameters
+selection-screen skip 2.
+selection-screen begin of block block1 with frame title text-001 no intervals.
+
+selection-screen begin of line.
+parameters: p_ex1 radiobutton group rad1 .
+selection-screen comment 5(30) text-ex1.
+selection-screen end of line.
+parameters: p_jdate1 type d default sy-datum.
+selection-screen skip 1.
+selection-screen begin of line.
+parameters: p_ex2 radiobutton group rad1 .
+selection-screen comment 5(30) text-ex2.
+selection-screen end of line.
+select-options: s_jdate2 for mara-laeda.
+selection-screen skip 1.
+selection-screen begin of line.
+parameters: p_ex3 radiobutton group rad1.
+selection-screen comment 5(20) text-ex3.
+selection-screen end of line.
+parameters: p_jdate3 like mara-laeda.
+selection-screen skip 1.
+selection-screen begin of line.
+parameters: p_ex4 radiobutton group rad1 .
+selection-screen comment 5(30) text-ex4.
+selection-screen end of line.
+select-options: s_jdate4 for mara-laeda no-extension no intervals.
+selection-screen end of block block1.
+selection-screen skip.
+selection-screen begin of block block2 with frame title text-002 no intervals.
+
+selection-screen begin of line.
+parameters: P_ex5 as checkbox.
+selection-screen comment 5(30) text-ex5.
+selection-screen end of line.
+selection-screen skip.
+selection-screen begin of line.
+parameters: P_ex6 as checkbox.
+selection-screen comment 5(30) text-ex6.
+selection-screen end of line.
+selection-screen skip.
+selection-screen begin of line.
+parameters: P_ex7 as checkbox.
+selection-screen comment 5(30) text-ex7.
+selection-screen end of line.
+selection-screen end of block block2.
+* AT selection-screen.
+AT selection-screen.
+    if ( p_ex1 = 'X' ) and
+    ( ( p_jdate1 = 'IEQ?' ) or ( p_jdate1 is initial ) ).
+        message E017 with 'Selection Option with Default field has no value'.
+    elseif ( p_ex1 = 'X' ) and
+    not ( ( p_jdate1 = 'IEQ?' ) or ( p_jdate1 is initial ) ).
+        message I017 with 'We are now using Example 1'.
+    endif.
+    if ( p_ex2 = 'X' ) and
+    ( ( s_jdate2 = 'IEQ?' ) or ( s_jdate2 is initial ) ).
+        message E017 with 'Selection Option using for field has no value'.
+    elseif ( p_ex2 = 'X' ) and
+    not ( ( s_jdate2 = 'IEQ?' ) or ( s_jdate2 is initial ) ).
+        message I017 with 'And now Example 2 is selected'.
+    endif.
+    if ( p_ex3 = 'X' ) and
+    ( ( p_jdate3 = 'IEQ?' ) or ( p_jdate3 is initial ) ).
+        message E017 with 'Parameter w/ like statement field has no value'.
+    elseif ( p_ex3 = 'X' ) and
+    not ( ( p_jdate3 = 'IEQ?' ) or ( p_jdate3 is initial ) ).
+        message I017 with 'We are now using Example 3'.
+    endif.
+    if ( p_ex4 = 'X' ) and
+    ( ( s_jdate4 = 'IEQ?' ) or ( s_jdate4 is initial ) ).
+        message E017 with 'Selection Option with no interval has no value'.
+    elseif ( p_ex4 = 'X' ) and
+    not ( ( s_jdate4 = 'IEQ?' ) or ( s_jdate4 is initial ) ).
+        message I017 with 'We are now using Example 4'.
+    endif.
+    if p_ex5 = 'X'.
+        perform get_price_data.
+    else.
+        message I017 with 'No Pricing Data selected'.
+    endif.
+    if p_ex6 = 'X'.
+        perform get_cost_data.
+    else.
+        message I017 with 'No Costing Data selected'.
+    endif.
+    if p_ex7 = 'X'.
+        perform get_revenue_data.
+    else.
+        message I017 with 'No Revenue Data selected'.
+    endif.
+    form get_cost_data.
+        ...
+    endform.
+    form get_revenue_data.
+        ...
+    endform.
+    form get_price_data.
+        ...
+    endform.
 </div></code></code></pre>
 </details>
 <h2 id="cool-things">Cool Things</h2>
