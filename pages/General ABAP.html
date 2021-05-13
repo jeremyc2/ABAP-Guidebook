@@ -2,7 +2,7 @@
     <html>
     <head>
         <meta charset="UTF-8">
-        <title>ABAP Development Notes</title>
+        <title>SAP Tables</title>
         <style>
 </style>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
@@ -24,7 +24,8 @@
         
     </head>
     <body class="vscode-body vscode-light">
-        <!-- title: ABAP Development Notes -->
+        <!-- cSpell:disable -->
+<!-- title: ABAP Development Notes -->
 <script src="https://jeremyc2.github.io/CDN/sync-favicon-with-title.js"></script>
 <script src="https://jeremyc2.github.io/CDN/markdown-themes.js"></script>
 <h1 id="sap-tables">SAP Tables</h1>
@@ -56,6 +57,7 @@
 <li><a href="#the-initialization-event">The Initialization Event</a></li>
 </ul>
 </li>
+<li><a href="#badi-and-bapi">BADI and BAPI</a></li>
 </ul>
 </li>
 <li><a href="#t-codes">T-Codes</a>
@@ -732,6 +734,9 @@ selection screen execution.</p>
 <p>The at selection-screen event is processed after user input on the active selection screen. This can occur when the user presses a function key or
 clicks a pushbutton, as well as a host of other elements that can be interacted on by the user. In addition to data validation checks, warning messages,
 GUI status change, or even pop-up windows can be called using the at selection-screen event.</p>
+<h3 id="badi-and-bapi">BADI and BAPI</h3>
+<p>BAPI allows connecting SAP systems with SAP or non-SAP systems<br>
+BADI allows adding enhancements to improve the functionalities without affecting the initial source codes.</p>
 <h2 id="t-codes">T-Codes</h2>
 <p><strong>Table TSTC:</strong> All T-Codes can be viewed</p>
 <p><a href="https://www.system-overload.org/sap/transaction-codes.html">T-Codes By Category</a></p>

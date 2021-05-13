@@ -1,3 +1,4 @@
+<!-- cSpell:disable -->
 <!-- title: ABAP Development Notes -->
 <script src="https://jeremyc2.github.io/CDN/sync-favicon-with-title.js"></script>
 <script src="https://jeremyc2.github.io/CDN/markdown-themes.js"></script>
@@ -21,6 +22,7 @@
       - [Passing Parameters](#passing-parameters)
     - [Selection screens](#selection-screens)
       - [The Initialization Event](#the-initialization-event)
+    - [BADI and BAPI](#badi-and-bapi)
   - [T-Codes](#t-codes)
     - [Standard T-Codes](#standard-t-codes)
     - [Special T-Codes](#special-t-codes)
@@ -395,6 +397,11 @@ The at selection-screen event is processed after user input on the active select
 clicks a pushbutton, as well as a host of other elements that can be interacted on by the user. In addition to data validation checks, warning messages,
 GUI status change, or even pop-up windows can be called using the at selection-screen event.
 
+### BADI and BAPI
+
+BAPI allows connecting SAP systems with SAP or non-SAP systems  
+BADI allows adding enhancements to improve the functionalities without affecting the initial source codes.  
+  
 ## T-Codes
 
 **Table TSTC:** All T-Codes can be viewed
