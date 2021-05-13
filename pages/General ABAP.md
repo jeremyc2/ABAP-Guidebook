@@ -112,9 +112,9 @@ Non-executable program types:
 > Q How do I decide whether to use an include, an internal subroutine, an external subroutine, or a function module to implement my code?  
   
 > A If the code will not be used by any other programs, then use an internal subroutine. If the code might be useful to other programs, use a
-function module. You should not create external subroutines. They were only covered in the previous chapter so that you would know how to
+function module. You should not create external subroutines. They were only covered so that you would know how to
 use them because there are still many in use in the R/3 system. It's also easier to understand function modules if you know how external
-subroutines work. Instead of external subroutines, use function modules. includes should be used to simplify your program structure and
+subroutines work. Instead of external subroutines, use function modules. Includes should be used to simplify your program structure and
 group similar components together. They should not be used as containers for reusable code that is included into multiple programs. For
 example, you might put all of your data declarations into one include, your events into another, your subroutines into a third, and your
 calls to function modules into a fourth.  
