@@ -3,9 +3,11 @@
 <script src="https://jeremyc2.github.io/CDN/sync-favicon-with-title.js"></script>
 <script src="https://jeremyc2.github.io/CDN/markdown-themes.js"></script>
 
+# ABAP Notes
+
 <details open><summary>Table of Contents</summary>
 
-- [SAP Tables](#sap-tables)
+- [ABAP Notes](#abap-notes)
   - [General Notes](#general-notes)
     - [Data and Parameters Statements](#data-and-parameters-statements)
     - [Field Symbols](#field-symbols)
@@ -58,8 +60,6 @@
     - [Extensions](#extensions)
     - [Tips and Shortcuts](#tips-and-shortcuts)
 </details>
-
-# SAP Tables
 
 ## General Notes
 
