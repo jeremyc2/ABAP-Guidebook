@@ -3,8 +3,6 @@
 <script src="https://jeremyc2.github.io/CDN/sync-favicon-with-title.js"></script>
 <script src="https://jeremyc2.github.io/CDN/markdown-themes.js"></script>
 
-# SAP Tables
-
 <details open><summary>Table of Contents</summary>
 
 - [SAP Tables](#sap-tables)
@@ -60,6 +58,8 @@
     - [Extensions](#extensions)
     - [Tips and Shortcuts](#tips-and-shortcuts)
 </details>
+
+# SAP Tables
 
 ## General Notes
 
