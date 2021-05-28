@@ -9,6 +9,7 @@
 
 - [ABAP Notes](#abap-notes)
   - [General Notes](#general-notes)
+    - [Enhancements](#enhancements)
     - [Data and Parameters Statements](#data-and-parameters-statements)
     - [Field Symbols](#field-symbols)
     - [Assignment Statements](#assignment-statements)
@@ -131,6 +132,10 @@ Data Dictionary:
   6. Domains: Characteristics of data elements. Can also contain possible values
   7. Search helps: List of possible values for a field
   8. Lock objects: Controls access, prevents race conditions
+
+### Enhancements
+
+[Enhancements PDF Guidebook][13]
 
 ### Data and Parameters Statements
 
@@ -1028,6 +1033,7 @@ Add the following to  your markdown snippets and make sure quick suggestions are
 [10]: https://www.guru99.com/alv-list-view-programming.html
 [11]: ABAP%20in%2021%20Days.html
 [12]: abapin21days.pdf
+[13]: SAP%20Enhancement%20Framework.pdf
 [ABAP-Docu]: http://sapdr4a21.wal-mart.com:8050/sap/public/bc/abap/docu?sap-language=EN&format=STANDARD&object=ABENABAP&tree=X
 [MD-All-In-One]: https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one
 [Run-On-Save]: https://marketplace.visualstudio.com/items?itemName=pucelle.run-on-save
