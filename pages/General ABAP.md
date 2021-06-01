@@ -56,7 +56,7 @@
     - [Loops](#loops-1)
     - [Subroutine](#subroutine)
   - [Cool Things](#cool-things)
-  - [Takk List](#takk-list)
+  - [Task List](#task-list)
   - [VS Code Markdown Help](#vs-code-markdown-help)
     - [Extensions](#extensions)
     - [Tips and Shortcuts](#tips-and-shortcuts)
@@ -990,7 +990,7 @@ AT selection-screen.
 [New String Options][3]  
 [Value (Quick insert into internal tables)][7]
 
-## Takk List
+## Task List
 
 * [x] Create a table in the DDIC
 * [x] Build a CRUD Report
