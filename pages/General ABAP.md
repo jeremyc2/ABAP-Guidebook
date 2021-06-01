@@ -77,6 +77,9 @@ Sample Programs:
   * Package **SABAPDEMOS** (from **SE38**/**SE80** or **SE16** with table **TADIR** ([also here](Demo-Programs-and-Templates.md)))
   * **BC\*ALV\*** or **BC\*ALV\*DEMO** (i.e. **BCALV_GRID_05** (see [**ALV** programming][10]))
 
+Find Reports by User:
+  * Use table TRDIR
+
 Program Search:
   1. **SE38**
   2. **F4** in the program field
@@ -478,7 +481,7 @@ BADI allows adding enhancements to improve the functionalities without affecting
 2. Read at
 
 ```
-*oop at it [into wa] [from m] [to n] [where exp].
+loop at it [into wa] [from m] [to n] [where exp].
 ---
 endloop.
 ```
