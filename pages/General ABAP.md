@@ -46,6 +46,7 @@
   - [ABAP Code Snippets](#abap-code-snippets)
     - [Hello World](#hello-world)
     - [Get Last Day of Previous Month](#get-last-day-of-previous-month)
+    - [Parameters declaration](#parameters-declaration)
     - [Explicitly typed declaration](#explicitly-typed-declaration)
     - [Implicit inline declaration (Since ABAP 7.40)](#implicit-inline-declaration-since-abap-740)
     - [Define Internal tables](#define-internal-tables)
@@ -752,6 +753,24 @@ DATA LAST_EOM    TYPE D.  "last end-of-month date
   LAST_EOM = LAST_EOM - 1.
 
   WRITE: 'Last day of previous month was', LAST_EOM.
+```
+</details>
+
+### Parameters declaration
+<details open>
+<summary>Code</summary>
+
+```
+PARAMETERS <P_NAME> TYPE <TABLE-FIELD>. " General parameter for a input field
+
+PARAMETERS <P_NAME> TYPE <TABLE-FIELD> OBLIGATORY. "Parameter for mandatory input field
+
+PARAMETERS <P_NAME> AS CHECKBOX. " Parameter for check box printing
+
+
+PARAMETERS <P_NAME1> RADIOBUTTONGROUP <RADIOBUTTON GROUP>. " Print Radio button group
+PARAMETERS <P_NAME2> RADIOBUTTONGROUP <RADIOBUTTON GROUP>. " Print Radio button group
+PARAMETERS <P_NAME2> RADIOBUTTONGROUP <RADIOBUTTON GROUP>. " Print Radio button group
 ```
 </details>
 

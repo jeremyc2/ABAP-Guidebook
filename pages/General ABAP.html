@@ -96,6 +96,7 @@
 <ul>
 <li><a href="#hello-world">Hello World</a></li>
 <li><a href="#get-last-day-of-previous-month">Get Last Day of Previous Month</a></li>
+<li><a href="#parameters-declaration">Parameters declaration</a></li>
 <li><a href="#explicitly-typed-declaration">Explicitly typed declaration</a></li>
 <li><a href="#implicit-inline-declaration-since-abap-740">Implicit inline declaration (Since ABAP 7.40)</a></li>
 <li><a href="#define-internal-tables">Define Internal tables</a></li>
@@ -1218,6 +1219,21 @@ WRITE 'Hello World'.
   LAST_EOM = LAST_EOM - 1.
 
   WRITE: 'Last day of previous month was', LAST_EOM.
+</div></code></code></pre>
+</details>
+<h3 id="parameters-declaration">Parameters declaration</h3>
+<details open>
+<summary>Code</summary>
+<pre><code><code><div>PARAMETERS &lt;P_NAME&gt; TYPE &lt;TABLE-FIELD&gt;. &quot; General parameter for a input field
+
+PARAMETERS &lt;P_NAME&gt; TYPE &lt;TABLE-FIELD&gt; OBLIGATORY. &quot;Parameter for mandatory input field
+
+PARAMETERS &lt;P_NAME&gt; AS CHECKBOX. &quot; Parameter for check box printing
+
+
+PARAMETERS &lt;P_NAME1&gt; RADIOBUTTONGROUP &lt;RADIOBUTTON GROUP&gt;. &quot; Print Radio button group
+PARAMETERS &lt;P_NAME2&gt; RADIOBUTTONGROUP &lt;RADIOBUTTON GROUP&gt;. &quot; Print Radio button group
+PARAMETERS &lt;P_NAME2&gt; RADIOBUTTONGROUP &lt;RADIOBUTTON GROUP&gt;. &quot; Print Radio button group
 </div></code></code></pre>
 </details>
 <h3 id="explicitly-typed-declaration">Explicitly typed declaration</h3>
