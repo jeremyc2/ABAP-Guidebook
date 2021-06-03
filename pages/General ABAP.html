@@ -478,6 +478,24 @@ field-symbol name must begin and end with angle brackets.</p>
 </tbody>
 </table>
 <h3 id="events">Events</h3>
+<p>Each executable program contains a standard selection screen with the screen
+number 1000. The screen elements on the standard selection screen are defined by
+all PARAMETERS, SELECT-OPTIONS, and SELECTION-SCREEN statements that are not
+within the definition of a stand-alone selection screen, in other words, that
+are not defined between the following statements:</p>
+<pre><code><code><div>SELECTION-SCREEN BEGIN OF SCREEN ...  
+...  
+SELECTION-SCREEN END OF SCREEN ...  
+</div></code></code></pre>
+<p>If a standard selection screen comprises the screen for the executable program
+and the screen for a logical database, the screen elements for the executable
+program are listed below those for the logical database.</p>
+<p>Function groups and module pools do not have a standard selection screen. Here,
+you must place the three statements PARAMETERS, SELECT-OPTIONS, and
+SELECTION-SCREEN within the definition of the stand-alone selection screen.</p>
+<p><strong>It is advisable to group all the statements that define the standard selection
+screen and list them in the global declaration section together with the
+definitions of stand-alone selection screens.</strong></p>
 <table>
 <thead>
 <tr>
