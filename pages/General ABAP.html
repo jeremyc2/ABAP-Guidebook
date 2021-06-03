@@ -500,6 +500,70 @@ field-symbol name must begin and end with angle brackets.</p>
 </tr>
 </tbody>
 </table>
+<p><strong>LOAD-OF-PROGRAM</strong><br>
+First event to be called before any of the other ABAP code is processed</p>
+<p><strong>INITIALIZATION</strong><br>
+Called after the abap selection screen code has been processed (i.e. parameters,<br>
+select-options etc) but before these are displayed to the user. So you can use<br>
+it to initialize input fields of the selection screen or change the default<br>
+values of these before the user gets to enter data into them.</p>
+<p><strong>AT SELECTION SCREEN OUTPUT</strong><br>
+This is called just before the selection screen is displayed and can be used to<br>
+manipulate the actual selection screen attributes using the loop at screen<br>
+functionality. This allows you to do things like hide fields, grey them out so<br>
+they are output only or make them intensified etc.</p>
+<pre><code><code><div>LOOP AT SCREEN.  
+  IF SCREEN-name = 'P_FIELd1'.  
+    SCREEN-INTENSIFIED = '1'. MODIFY SCREEN. CONTINUE.  
+  ENDIF.  
+ENDLOOP.  
+</div></code></code></pre>
+<p><strong>AT SELECTION-SCREEN</strong><br>
+This event is triggered when the user presses enter on the report selection<br>
+screen and is mainly used to add processing related to screen validation. Within<br>
+the AT SELECTION SCREEN event you have not left the selection screen, which<br>
+allows you to manipulate the values contained within sel screen parameters or<br>
+stop the program and return the user to the selection screen by displaying an<br>
+error message.</p>
+<p><strong>AT SELECTION-SCREEN ON</strong><br>
+This allows you to add processing to a selection screen field for when it is<br>
+changed, user presses F1 or F4 etc using the following parameters</p>
+<pre><code><code><div>&lt;parameter1&gt;  
+AT SELECTION-SCREEN ON Block &lt;block1&gt;  
+AT SELECTION-SCREEN ON HELP-REQUEST for &lt;parameter1&gt; (i.e. When press F1)  
+AT SELECTION-SCREEN ON VALUE-REQUEST for &lt;parameter1&gt; (i.e. When press F4)  
+AT SELECTION-SCREEN ON RADIOBUTTON for &lt;parameter1&gt; (i.e. When press F4)  
+  
+AT SELECTION-SCREEN ON P_FIELD1. AT SELECTION-SCREEN ON help-request for  
+P_FIELD1.  
+</div></code></code></pre>
+<p><strong>TOP-OF-PAGE</strong><br>
+This is called when a new page is started with an ABAP list and is used to<br>
+display a header for the list.</p>
+<p><strong>TOP-OF-PAGE During LINE_SELECTION</strong><br>
+If you use the 'DURING LINE-SELECTION' addition this event is also triggered<br>
+when creating detailed lists.</p>
+<p><strong>END-OF-PAGE</strong><br>
+This is displayed at the end of each page if there is a line reservation in the<br>
+addition LINE-COUNT of the initiating statement for a page footer.</p>
+<pre><code><code><div>REPORT demo_rep NO STANDARD PAGE HEADING  
+                            LINE-COUNT 0(1).  
+</div></code></code></pre>
+<p><strong>START-OF-SELECTION</strong><br>
+If the user executes the program either by pressing the execute button or F8<br>
+this is the first event triggered after all screen selection processing has been<br>
+completed (AT Selection...). So pressing execute triggers both AT SELECTION and<br>
+then START-OF-SELECTION</p>
+<p>If no other events are declared then there is no need to manually code this<br>
+event as all processing statements will be automatically assigned to an implicit<br>
+START-OF-SELECTION block. It is a good ideal to put it in though as it separates<br>
+the code and makes it easier to read. Generally you would put all you data<br>
+selection ABAP code within this event.</p>
+<p><strong>END-OF-SELECTION</strong><br>
+If your report is linked to a logical database this event is called after the<br>
+logical database has completely finished its work. Otherwise this event is<br>
+triggered after the START-OF-SELECTION event so you would generally use it to<br>
+processes the data retrieved in that event.</p>
 <table>
 <thead>
 <tr>

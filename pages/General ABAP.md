@@ -278,6 +278,87 @@ field-symbol name must begin and end with angle brackets.
 | User     | at line-selection </br> at pfn </br> at user-command                                               |
 | Program  | top-of-page </br> end-of-page                                                                      |
 
+**LOAD-OF-PROGRAM**   
+First event to be called before any of the other ABAP code is processed  
+  
+**INITIALIZATION**  
+Called after the abap selection screen code has been processed (i.e. parameters,  
+select-options etc) but before these are displayed to the user. So you can use  
+it to initialize input fields of the selection screen or change the default  
+values of these before the user gets to enter data into them.  
+  
+**AT SELECTION SCREEN OUTPUT**  
+This is called just before the selection screen is displayed and can be used to  
+manipulate the actual selection screen attributes using the loop at screen  
+functionality. This allows you to do things like hide fields, grey them out so  
+they are output only or make them intensified etc.  
+  
+```
+LOOP AT SCREEN.  
+  IF SCREEN-name = 'P_FIELd1'.  
+    SCREEN-INTENSIFIED = '1'. MODIFY SCREEN. CONTINUE.  
+  ENDIF.  
+ENDLOOP.  
+```
+  
+**AT SELECTION-SCREEN**  
+This event is triggered when the user presses enter on the report selection  
+screen and is mainly used to add processing related to screen validation. Within  
+the AT SELECTION SCREEN event you have not left the selection screen, which  
+allows you to manipulate the values contained within sel screen parameters or  
+stop the program and return the user to the selection screen by displaying an  
+error message.  
+  
+**AT SELECTION-SCREEN ON**  
+This allows you to add processing to a selection screen field for when it is  
+changed, user presses F1 or F4 etc using the following parameters  
+  
+```
+<parameter1>  
+AT SELECTION-SCREEN ON Block <block1>  
+AT SELECTION-SCREEN ON HELP-REQUEST for <parameter1> (i.e. When press F1)  
+AT SELECTION-SCREEN ON VALUE-REQUEST for <parameter1> (i.e. When press F4)  
+AT SELECTION-SCREEN ON RADIOBUTTON for <parameter1> (i.e. When press F4)  
+  
+AT SELECTION-SCREEN ON P_FIELD1. AT SELECTION-SCREEN ON help-request for  
+P_FIELD1.  
+```
+  
+**TOP-OF-PAGE**  
+This is called when a new page is started with an ABAP list and is used to  
+display a header for the list.  
+  
+**TOP-OF-PAGE During LINE_SELECTION**  
+If you use the 'DURING LINE-SELECTION' addition this event is also triggered  
+when creating detailed lists.  
+  
+**END-OF-PAGE**  
+This is displayed at the end of each page if there is a line reservation in the  
+addition LINE-COUNT of the initiating statement for a page footer.  
+  
+```
+REPORT demo_rep NO STANDARD PAGE HEADING  
+                            LINE-COUNT 0(1).  
+```
+  
+**START-OF-SELECTION**  
+If the user executes the program either by pressing the execute button or F8  
+this is the first event triggered after all screen selection processing has been  
+completed (AT Selection...). So pressing execute triggers both AT SELECTION and  
+then START-OF-SELECTION  
+  
+If no other events are declared then there is no need to manually code this  
+event as all processing statements will be automatically assigned to an implicit  
+START-OF-SELECTION block. It is a good ideal to put it in though as it separates  
+the code and makes it easier to read. Generally you would put all you data  
+selection ABAP code within this event.  
+  
+**END-OF-SELECTION**  
+If your report is linked to a logical database this event is called after the  
+logical database has completely finished its work. Otherwise this event is  
+triggered after the START-OF-SELECTION event so you would generally use it to  
+processes the data retrieved in that event.
+
 | Location                                    | Event      | Action                                                                                          |
 | ------------------------------------------- | ---------- | ----------------------------------------------------------------------------------------------- |
 | before start-of-selection                   | exit/check | exit event                                                                                      |
