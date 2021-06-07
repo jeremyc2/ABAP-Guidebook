@@ -45,6 +45,7 @@
     - [As Symbol, as Icon, as Line](#as-symbol-as-icon-as-line)
   - [ABAP Code Snippets](#abap-code-snippets)
     - [Hello World](#hello-world)
+    - [Lookup and Open Program by User ID](#lookup-and-open-program-by-user-id)
     - [Get Last Day of Previous Month](#get-last-day-of-previous-month)
     - [Parameters declaration](#parameters-declaration)
     - [Explicitly typed declaration](#explicitly-typed-declaration)
@@ -737,6 +738,7 @@ WRITE 'Hello World'.
 ```
 </details>
 
+### Lookup and Open Program by User ID
 <details open>
 <summary>Code</summary>
 
