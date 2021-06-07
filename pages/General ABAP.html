@@ -1205,6 +1205,114 @@ If an internal table does not have a header line, the internal table name itself
 WRITE 'Hello World'.
 </div></code></code></pre>
 </details>
+<details open>
+<summary>Code</summary>
+<pre><code><code><div>TABLES trdir.
+SELECT-OPTIONS user FOR trdir-cnam NO INTERVALS.
+
+TYPES: BEGIN OF t_user,
+         id   like user_addr-bname,
+         name like user_addr-name_textc,
+       END OF t_user,
+       BEGIN OF t_res,
+         user         LIKE user_addr-name_textc,
+         program_name LIKE trdir-name,
+       END OF t_res.
+
+DATA: wa_trdir TYPE trdir,
+      it_res   TYPE TABLE OF t_res,
+      it_fieldcat TYPE slis_t_fieldcat_alv,
+      wa_fieldcat TYPE slis_fieldcat_alv,
+      layout TYPE SLIS_LAYOUT_ALV.
+
+wa_fieldcat-fieldname  = 'USER'.    &quot; Fieldname in the data table
+wa_fieldcat-seltext_m  = 'User'.   &quot; Column description in the output
+APPEND wa_fieldcat TO it_fieldcat.
+
+wa_fieldcat-fieldname  = 'PROGRAM_NAME'.
+wa_fieldcat-seltext_m  = 'Program Name'.
+APPEND wa_fieldcat TO it_fieldcat.
+
+layout-colwidth_optimize = 'X'.
+
+SELECT * FROM trdir into wa_trdir WHERE cnam IN user AND name NOT LIKE '!%' ORDER BY cnam.
+  SELECT SINGLE name_textc FROM user_addr INTO @DATA(full_name) WHERE bname EQ @wa_trdir-cnam.
+  APPEND VALUE #( user = full_name program_name = wa_trdir-name ) TO it_res.
+endselect.
+
+CALL FUNCTION 'REUSE_ALV_LIST_DISPLAY'
+  EXPORTING
+    i_callback_program = sy-repid
+    it_fieldcat = it_fieldcat
+    is_layout = layout
+    i_callback_user_command = 'HANDLE_USER_COMMAND'
+  TABLES
+    t_outtab    = it_res.
+
+FORM f4_opts.
+  DATA it_user TYPE TABLE OF t_user.
+
+  SELECT bname, name_textc FROM user_addr INTO TABLE @it_user.
+
+  CALL FUNCTION 'F4IF_INT_TABLE_VALUE_REQUEST'
+    EXPORTING
+      retfield    = 'ID'
+      dynpprog    = 'ZTEST_JC'
+      dynpnr      = '1000'
+      dynprofield = 'USER'
+      value_org   = 'S'
+    TABLES
+      value_tab   = it_user.
+ENDFORM.
+
+FORM handle_user_command USING r_ucomm LIKE sy-ucomm &quot;User commands
+rs_selfield TYPE slis_selfield. &quot;Field selected
+     CASE r_ucomm.
+       WHEN '&amp;IC1'. &quot;Double-click command
+         IF rs_selfield-fieldname = 'PROGRAM_NAME'.
+
+             &quot; Not using this method anymore because we want to start in
+             &quot; a new task
+*            DATA: bdcdata_tab TYPE TABLE OF bdcdata,
+*                  opt TYPE ctu_params.
+*
+*            bdcdata_tab = VALUE #(
+*              ( program  = 'SAPLWBABAP' dynpro = '0100' dynbegin = 'X' )
+*              ( fnam = 'RS38M-PROGRAMM' fval = rs_selfield-value ) ).
+
+*            TRY.
+*                CALL TRANSACTION 'SE38' WITH AUTHORITY-CHECK
+*                                        USING bdcdata_tab OPTIONS FROM opt.
+*              CATCH cx_sy_authorization_error ##NO_HANDLER.
+*            ENDTRY.
+
+              DATA: wa_spagpa TYPE rfc_spagpa,
+                    it_spagpa TYPE TABLE OF rfc_spagpa.
+
+              wa_spagpa-parid  = 'RID'.
+              wa_spagpa-parval  = rs_selfield-value.
+              APPEND wa_spagpa TO it_spagpa.
+
+              DATA t(8).
+              t = 'tid001'.
+              CALL FUNCTION 'ABAP4_CALL_TRANSACTION'  STARTING NEW TASK t
+                EXPORTING
+                  TCODE = 'SE38'
+                TABLES
+                  SPAGPA_TAB = it_spagpa.
+
+         ENDIF.
+     ENDCASE.
+
+ENDFORM. &quot;HANDLE_USER_COMMAND
+
+AT SELECTION-SCREEN ON VALUE-REQUEST FOR user-low.
+  PERFORM f4_opts.
+
+AT SELECTION-SCREEN ON VALUE-REQUEST FOR user-high.
+  PERFORM f4_opts.
+</div></code></code></pre>
+</details>
 <h3 id="get-last-day-of-previous-month">Get Last Day of Previous Month</h3>
 <details open>
 <summary>Code</summary>
