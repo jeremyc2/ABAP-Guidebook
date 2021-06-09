@@ -27,6 +27,7 @@
   - [T-Codes](#t-codes)
     - [Standard T-Codes](#standard-t-codes)
     - [Special T-Codes](#special-t-codes)
+  - [Useful Tables](#useful-tables)
   - [My Local Development Objects](#my-local-development-objects)
   - [ABAP CRUD](#abap-crud)
   - [Internal Tables](#internal-tables)
@@ -549,6 +550,12 @@ BADI allows adding enhancements to improve the functionalities without affecting
 | **ME23N** | Display Purchase Order                   |                                |
 | **ME2N**  | Purchasing Documents Per Document Number | Search for purchasing document |
 | **MIRO**  | Enter Incoming Invoice                   | Post an Invoice                |
+
+## Useful Tables
+
+| Table                     | Description                |
+| ------------------------- | -------------------------- |
+| ZRHRDW_ENH612_REMEDIATION | Update user data for Ariba |
 
 ## My Local Development Objects
 
