@@ -541,6 +541,7 @@ BADI allows adding enhancements to improve the functionalities without affecting
 | **SE24**       | Class Builder     | Write/edit object classes and interfaces                        |
 | **SE80**       | Object Navigator  | Single Interface for various development tools                  |
 | **SA38**       | Program Execution | Execute an ABAP program                                         |
+| **/H**         | Debug Mode        | Start debugger after next user action                           |
 | **/NEX**       | Exit              | Exit from the current client                                    |
 
 ### Special T-Codes
