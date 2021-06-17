@@ -533,6 +533,7 @@ BADI allows adding enhancements to improve the functionalities without affecting
 | **SE38**       | ABAP Editor       | Write/edit reports, module pools, includes and subroutine pools |
 | **SE11, SE12** | View/Change Table | Process database table definitions and retrieve global types    |
 | **SE16**       | Table Browser     | View tables in Data Dictionary                                  |
+| **SE18**       | Enhancement Spot  | Create and Edit enhancements (including BADIs)                  |
 | **SE16N**      | Change Table Data | Interface to change table data in Data Dictionary               |
 | **SD11**       | SAP Data Model    |                                                                 |
 | **SE41**       | Menu Painter      | Design user interface                                           |
