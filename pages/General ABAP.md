@@ -528,22 +528,24 @@ BADI allows adding enhancements to improve the functionalities without affecting
 
 *To write an executable report use SE38*
 
-| T-Code         | Transaction       | Description                                                     |
-| -------------- | ----------------- | --------------------------------------------------------------- |
-| **SE38**       | ABAP Editor       | Write/edit reports, module pools, includes and subroutine pools |
-| **SE11, SE12** | View/Change Table | Process database table definitions and retrieve global types    |
-| **SE16**       | Table Browser     | View tables in Data Dictionary                                  |
-| **SE18**       | Enhancement Spot  | Create and Edit enhancements (including BADIs)                  |
-| **SE16N**      | Change Table Data | Interface to change table data in Data Dictionary               |
-| **SD11**       | SAP Data Model    |                                                                 |
-| **SE41**       | Menu Painter      | Design user interface                                           |
-| **SE51**       | Screen Painter    | Design Screen and flow logic                                    |
-| **SE37**       | Function Builder  | Write/edit function modules                                     |
-| **SE24**       | Class Builder     | Write/edit object classes and interfaces                        |
-| **SE80**       | Object Navigator  | Single Interface for various development tools                  |
-| **SA38**       | Program Execution | Execute an ABAP program                                         |
-| **/H**         | Debug Mode        | Start debugger after next user action                           |
-| **/NEX**       | Exit              | Exit from the current client                                    |
+| T-Code         | Transaction         | Description                                                     |
+| -------------- | ------------------- | --------------------------------------------------------------- |
+| **SE38**       | ABAP Editor         | Write/edit reports, module pools, includes and subroutine pools |
+| **SE11, SE12** | View/Change Table   | Process database table definitions and retrieve global types    |
+| **SE16**       | Table Browser       | View tables in Data Dictionary                                  |
+| **SE18**       | Enhancement Spot    | Create and Edit enhancements (including BADIs)                  |
+| **SE16N**      | Change Table Data   | Interface to change table data in Data Dictionary               |
+| **SD11**       | SAP Data Model      |                                                                 |
+| **SE41**       | Menu Painter        | Design user interface                                           |
+| **SE51**       | Screen Painter      | Design Screen and flow logic                                    |
+| **SE37**       | Function Builder    | Write/edit function modules                                     |
+| **SE24**       | Class Builder       | Write/edit object classes and interfaces                        |
+| **SE80**       | Object Navigator    | Single Interface for various development tools                  |
+| **SA38**       | Program Execution   | Execute an ABAP program                                         |
+| **ST22**       | Dump Analysis       | View latest error dump                                          |
+| **SU53**       | Authorization Check | Authorization check for troubleshooting                         |
+| **/H**         | Debug Mode          | Start debugger after next user action                           |
+| **/NEX**       | Exit                | Exit from the current client                                    |
 
 ### Special T-Codes
 
