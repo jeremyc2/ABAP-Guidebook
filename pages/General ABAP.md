@@ -67,6 +67,8 @@
 
 ## General Notes
 
+Quick Tip: You can lookup recently used T-Codes and programs on any given date or by any given user with the T-Code STAD
+
 T-Code ABAPDOCU - ABAP Documentation ([Available Online][ABAP-Docu])
 
 ABAP is interpreted.  
